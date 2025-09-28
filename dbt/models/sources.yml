@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    database: abdb
+    schema: public
+    tables:
+      - name: events_raw
+      - name: assignments
+      - name: experiments

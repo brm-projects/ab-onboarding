@@ -1,0 +1,18 @@
+name: "ab_onboarding"
+version: "1.0"
+config-version: 2
+
+profile: "ab_onboarding"
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+models:
+  ab_onboarding:
+    +materialized: view
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: analytics
+      +materialized: table

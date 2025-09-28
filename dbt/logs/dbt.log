@@ -1,0 +1,2473 @@
+[0m11:21:09.050148 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106858b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068d94d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068d9c10>]}
+
+
+============================== 11:21:09.053118 | 29798c89-e7b6-46a7-adbb-f8ae52cb5f51 ==============================
+[0m11:21:09.053118 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:21:09.053459 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'empty': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'profiles_dir': '/Users/barbaramariano/.dbt', 'partial_parse': 'True', 'log_format': 'default', 'log_path': 'dbt/logs', 'no_print': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'fail_fast': 'False', 'invocation_command': 'dbt debug --project-dir dbt', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'use_colors': 'True', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'quiet': 'False', 'introspect': 'True', 'use_experimental_parser': 'False', 'write_json': 'True'}
+[0m11:21:09.061048 [info ] [MainThread]: dbt version: 1.10.13
+[0m11:21:09.061276 [info ] [MainThread]: python version: 3.11.8
+[0m11:21:09.061435 [info ] [MainThread]: python path: /Users/barbaramariano/repositories/ab-onboarding/.venv/bin/python3.11
+[0m11:21:09.061576 [info ] [MainThread]: os info: macOS-13.4-arm64-arm-64bit
+[0m11:21:09.106496 [info ] [MainThread]: Using profiles dir at /Users/barbaramariano/.dbt
+[0m11:21:09.106761 [info ] [MainThread]: Using profiles.yml file at /Users/barbaramariano/.dbt/profiles.yml
+[0m11:21:09.106910 [info ] [MainThread]: Using dbt_project.yml file at dbt/dbt_project.yml
+[0m11:21:09.107255 [info ] [MainThread]: adapter type: postgres
+[0m11:21:09.107427 [info ] [MainThread]: adapter version: 1.9.1
+[0m11:21:09.147866 [info ] [MainThread]: Configuration:
+[0m11:21:09.148131 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:21:09.148282 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m11:21:09.148414 [info ] [MainThread]: Required dependencies:
+[0m11:21:09.148584 [debug] [MainThread]: Executing "git --help"
+[0m11:21:09.158686 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:21:09.159137 [debug] [MainThread]: STDERR: "b''"
+[0m11:21:09.159314 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:21:09.159518 [info ] [MainThread]: Connection:
+[0m11:21:09.159710 [info ] [MainThread]:   host: localhost
+[0m11:21:09.159841 [info ] [MainThread]:   port: 5432
+[0m11:21:09.159963 [info ] [MainThread]:   user: postgres
+[0m11:21:09.160106 [info ] [MainThread]:   database: abdb
+[0m11:21:09.160221 [info ] [MainThread]:   schema: analytics
+[0m11:21:09.160342 [info ] [MainThread]:   connect_timeout: 10
+[0m11:21:09.160457 [info ] [MainThread]:   role: None
+[0m11:21:09.160579 [info ] [MainThread]:   search_path: None
+[0m11:21:09.160698 [info ] [MainThread]:   keepalives_idle: 0
+[0m11:21:09.160815 [info ] [MainThread]:   sslmode: None
+[0m11:21:09.160938 [info ] [MainThread]:   sslcert: None
+[0m11:21:09.161055 [info ] [MainThread]:   sslkey: None
+[0m11:21:09.161173 [info ] [MainThread]:   sslrootcert: None
+[0m11:21:09.161296 [info ] [MainThread]:   application_name: dbt
+[0m11:21:09.161411 [info ] [MainThread]:   retries: 1
+[0m11:21:09.161718 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m11:21:09.264879 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m11:21:09.285457 [debug] [MainThread]: Using postgres connection "debug"
+[0m11:21:09.285649 [debug] [MainThread]: On debug: select 1 as id
+[0m11:21:09.285784 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:21:09.512629 [debug] [MainThread]: SQL status: SELECT 1 in 0.227 seconds
+[0m11:21:09.513590 [debug] [MainThread]: On debug: Close
+[0m11:21:09.513901 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m11:21:09.514293 [info ] [MainThread]: [32mAll checks passed![0m
+[0m11:21:09.516595 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.5002908, "process_in_blocks": "0", "process_kernel_time": 0.208379, "process_mem_max_rss": "120176640", "process_out_blocks": "0", "process_user_time": 0.669788}
+[0m11:21:09.517172 [debug] [MainThread]: Command `dbt debug` succeeded at 11:21:09.517066 after 0.50 seconds
+[0m11:21:09.517442 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:21:09.517715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106f46150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100c26d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106853a10>]}
+[0m11:21:09.518066 [debug] [MainThread]: Flushing usage events
+[0m11:21:09.964018 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:21:24.260265 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074c34d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074c9d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074ee390>]}
+
+
+============================== 11:21:24.262956 | 8f9c03ac-0d5d-4d67-9baa-cbd9038462b8 ==============================
+[0m11:21:24.262956 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:21:24.263271 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'log_format': 'default', 'cache_selected_only': 'False', 'no_print': 'None', 'invocation_command': 'dbt run --project-dir dbt', 'write_json': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_colors': 'True', 'use_experimental_parser': 'False', 'warn_error': 'None', 'printer_width': '80', 'log_path': 'dbt/logs', 'profiles_dir': '/Users/barbaramariano/.dbt', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'fail_fast': 'False', 'version_check': 'True', 'debug': 'False', 'introspect': 'True', 'empty': 'False', 'partial_parse': 'True', 'target_path': 'None'}
+[0m11:21:24.361167 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107910b10>]}
+[0m11:21:24.385561 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104aebcd0>]}
+[0m11:21:24.386085 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m11:21:24.457767 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:21:24.458187 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m11:21:24.458398 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1075cb350>]}
+[0m11:21:24.931434 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values`. Arguments to generic tests
+should be nested under the `arguments` property.`
+[0m11:21:24.931727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10795f650>]}
+[0m11:21:24.995104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107982090>]}
+[0m11:21:25.030733 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:21:25.032076 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:21:25.040828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108578e50>]}
+[0m11:21:25.041072 [info ] [MainThread]: Found 5 models, 7 data tests, 3 sources, 434 macros
+[0m11:21:25.041246 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10847c810>]}
+[0m11:21:25.042072 [info ] [MainThread]: 
+[0m11:21:25.042232 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:21:25.042358 [info ] [MainThread]: 
+[0m11:21:25.042556 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:21:25.044340 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb'
+[0m11:21:25.044574 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb'
+[0m11:21:25.068318 [debug] [ThreadPool]: Using postgres connection "list_abdb"
+[0m11:21:25.068498 [debug] [ThreadPool]: Using postgres connection "list_abdb"
+[0m11:21:25.068667 [debug] [ThreadPool]: On list_abdb: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:21:25.068822 [debug] [ThreadPool]: On list_abdb: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:21:25.068968 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:21:25.069095 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:21:25.158425 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.089 seconds
+[0m11:21:25.158685 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.090 seconds
+[0m11:21:25.159478 [debug] [ThreadPool]: On list_abdb: Close
+[0m11:21:25.160145 [debug] [ThreadPool]: On list_abdb: Close
+[0m11:21:25.160708 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_abdb, now create_abdb_analytics_staging)
+[0m11:21:25.160945 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_abdb, now create_abdb_analytics_analytics)
+[0m11:21:25.161225 [debug] [ThreadPool]: Creating schema "database: "abdb"
+schema: "analytics_staging"
+"
+[0m11:21:25.161477 [debug] [ThreadPool]: Creating schema "database: "abdb"
+schema: "analytics_analytics"
+"
+[0m11:21:25.164542 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_staging"
+[0m11:21:25.165617 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_analytics"
+[0m11:21:25.165793 [debug] [ThreadPool]: On create_abdb_analytics_staging: BEGIN
+[0m11:21:25.165946 [debug] [ThreadPool]: On create_abdb_analytics_analytics: BEGIN
+[0m11:21:25.166096 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:21:25.166241 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:21:25.175183 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.175412 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_analytics"
+[0m11:21:25.175579 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.175767 [debug] [ThreadPool]: On create_abdb_analytics_analytics: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "create_abdb_analytics_analytics"} */
+create schema if not exists "analytics_analytics"
+[0m11:21:25.175942 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_staging"
+[0m11:21:25.176176 [debug] [ThreadPool]: On create_abdb_analytics_staging: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "create_abdb_analytics_staging"} */
+create schema if not exists "analytics_staging"
+[0m11:21:25.183780 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.008 seconds
+[0m11:21:25.183978 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.008 seconds
+[0m11:21:25.184519 [debug] [ThreadPool]: On create_abdb_analytics_analytics: COMMIT
+[0m11:21:25.184980 [debug] [ThreadPool]: On create_abdb_analytics_staging: COMMIT
+[0m11:21:25.185167 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_analytics"
+[0m11:21:25.185345 [debug] [ThreadPool]: Using postgres connection "create_abdb_analytics_staging"
+[0m11:21:25.185514 [debug] [ThreadPool]: On create_abdb_analytics_analytics: COMMIT
+[0m11:21:25.185661 [debug] [ThreadPool]: On create_abdb_analytics_staging: COMMIT
+[0m11:21:25.190570 [debug] [ThreadPool]: SQL status: COMMIT in 0.005 seconds
+[0m11:21:25.190787 [debug] [ThreadPool]: On create_abdb_analytics_analytics: Close
+[0m11:21:25.191206 [debug] [ThreadPool]: SQL status: COMMIT in 0.005 seconds
+[0m11:21:25.191376 [debug] [ThreadPool]: On create_abdb_analytics_staging: Close
+[0m11:21:25.192864 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_abdb_analytics_staging, now list_abdb_analytics_staging)
+[0m11:21:25.196091 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:21:25.196314 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_abdb_analytics_analytics, now list_abdb_analytics_analytics)
+[0m11:21:25.196512 [debug] [ThreadPool]: On list_abdb_analytics_staging: BEGIN
+[0m11:21:25.197581 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:21:25.197736 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:21:25.197886 [debug] [ThreadPool]: On list_abdb_analytics_analytics: BEGIN
+[0m11:21:25.198106 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:21:25.207187 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.207390 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.207578 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:21:25.207743 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:21:25.207922 [debug] [ThreadPool]: On list_abdb_analytics_staging: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_staging"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_staging'
+  
+[0m11:21:25.208107 [debug] [ThreadPool]: On list_abdb_analytics_analytics: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_analytics"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_analytics'
+  
+[0m11:21:25.217232 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.009 seconds
+[0m11:21:25.217398 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.009 seconds
+[0m11:21:25.218033 [debug] [ThreadPool]: On list_abdb_analytics_staging: ROLLBACK
+[0m11:21:25.218613 [debug] [ThreadPool]: On list_abdb_analytics_analytics: ROLLBACK
+[0m11:21:25.219090 [debug] [ThreadPool]: On list_abdb_analytics_analytics: Close
+[0m11:21:25.219260 [debug] [ThreadPool]: On list_abdb_analytics_staging: Close
+[0m11:21:25.221914 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.222096 [debug] [MainThread]: On master: BEGIN
+[0m11:21:25.222236 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:21:25.229441 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m11:21:25.229611 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.229822 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m11:21:25.243171 [debug] [MainThread]: SQL status: SELECT 0 in 0.013 seconds
+[0m11:21:25.244474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1089472d0>]}
+[0m11:21:25.245439 [debug] [MainThread]: On master: ROLLBACK
+[0m11:21:25.246228 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.246441 [debug] [MainThread]: On master: BEGIN
+[0m11:21:25.247454 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m11:21:25.247628 [debug] [MainThread]: On master: COMMIT
+[0m11:21:25.247781 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.247933 [debug] [MainThread]: On master: COMMIT
+[0m11:21:25.248373 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:21:25.248577 [debug] [MainThread]: On master: Close
+[0m11:21:25.250230 [debug] [Thread-1 (]: Began running node model.ab_onboarding.stg_assignments
+[0m11:21:25.250734 [debug] [Thread-2 (]: Began running node model.ab_onboarding.stg_events_raw
+[0m11:21:25.250558 [info ] [Thread-1 (]: 1 of 5 START sql view model analytics_staging.stg_assignments .................. [RUN]
+[0m11:21:25.251047 [info ] [Thread-2 (]: 2 of 5 START sql view model analytics_staging.stg_events_raw ................... [RUN]
+[0m11:21:25.251299 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_staging, now model.ab_onboarding.stg_assignments)
+[0m11:21:25.251512 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_analytics, now model.ab_onboarding.stg_events_raw)
+[0m11:21:25.251710 [debug] [Thread-1 (]: Began compiling node model.ab_onboarding.stg_assignments
+[0m11:21:25.251894 [debug] [Thread-2 (]: Began compiling node model.ab_onboarding.stg_events_raw
+[0m11:21:25.257092 [debug] [Thread-1 (]: Writing injected SQL for node "model.ab_onboarding.stg_assignments"
+[0m11:21:25.258567 [debug] [Thread-2 (]: Writing injected SQL for node "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.259176 [debug] [Thread-2 (]: Began executing node model.ab_onboarding.stg_events_raw
+[0m11:21:25.259401 [debug] [Thread-1 (]: Began executing node model.ab_onboarding.stg_assignments
+[0m11:21:25.279129 [debug] [Thread-2 (]: Writing runtime sql for node "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.280823 [debug] [Thread-1 (]: Writing runtime sql for node "model.ab_onboarding.stg_assignments"
+[0m11:21:25.281404 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:21:25.281590 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.281764 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: BEGIN
+[0m11:21:25.281920 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: BEGIN
+[0m11:21:25.282074 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:21:25.282216 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:21:25.290056 [debug] [Thread-1 (]: SQL status: BEGIN in 0.008 seconds
+[0m11:21:25.290273 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:21:25.290451 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+
+  create view "abdb"."analytics_staging"."stg_assignments__dbt_tmp"
+    
+    
+  as (
+    with src as (
+  select
+    user_id,
+    experiment_key,
+    variant,
+    assigned_at
+  from "abdb"."public"."assignments"
+)
+select
+  user_id,
+  lower(experiment_key) as experiment_key,
+  upper(variant) as variant,
+  assigned_at
+from src
+  );
+[0m11:21:25.291734 [debug] [Thread-2 (]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.291931 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.292108 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+
+  create view "abdb"."analytics_staging"."stg_events_raw__dbt_tmp"
+    
+    
+  as (
+    with src as (
+  select
+    id,
+    ts,
+    user_id,
+    experiment_key,
+    variant,
+    event_type,
+    metadata
+  from "abdb"."public"."events_raw"
+)
+select
+  id,
+  ts,
+  user_id,
+  lower(experiment_key) as experiment_key,
+  upper(variant) as variant,
+  lower(event_type) as event_type,
+  metadata
+from src
+  );
+[0m11:21:25.296877 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.006 seconds
+[0m11:21:25.297056 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.005 seconds
+[0m11:21:25.300036 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:21:25.301426 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.301610 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+alter table "abdb"."analytics_staging"."stg_assignments__dbt_tmp" rename to "stg_assignments"
+[0m11:21:25.301793 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+alter table "abdb"."analytics_staging"."stg_events_raw__dbt_tmp" rename to "stg_events_raw"
+[0m11:21:25.302941 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:21:25.303091 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:21:25.309940 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: COMMIT
+[0m11:21:25.310571 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: COMMIT
+[0m11:21:25.310773 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:21:25.310950 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.311116 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: COMMIT
+[0m11:21:25.311281 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: COMMIT
+[0m11:21:25.312884 [debug] [Thread-2 (]: SQL status: COMMIT in 0.001 seconds
+[0m11:21:25.313038 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m11:21:25.315770 [debug] [Thread-2 (]: Applying DROP to: "abdb"."analytics_staging"."stg_events_raw__dbt_backup"
+[0m11:21:25.316814 [debug] [Thread-1 (]: Applying DROP to: "abdb"."analytics_staging"."stg_assignments__dbt_backup"
+[0m11:21:25.319026 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:21:25.319364 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:21:25.319534 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+drop view if exists "abdb"."analytics_staging"."stg_events_raw__dbt_backup" cascade
+[0m11:21:25.319710 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+drop view if exists "abdb"."analytics_staging"."stg_assignments__dbt_backup" cascade
+[0m11:21:25.320267 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m11:21:25.320419 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m11:21:25.321476 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: Close
+[0m11:21:25.321986 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: Close
+[0m11:21:25.323106 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1083d7850>]}
+[0m11:21:25.323334 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1083d7590>]}
+[0m11:21:25.323696 [info ] [Thread-2 (]: 2 of 5 OK created sql view model analytics_staging.stg_events_raw .............. [[32mCREATE VIEW[0m in 0.07s]
+[0m11:21:25.324018 [info ] [Thread-1 (]: 1 of 5 OK created sql view model analytics_staging.stg_assignments ............. [[32mCREATE VIEW[0m in 0.07s]
+[0m11:21:25.324291 [debug] [Thread-2 (]: Finished running node model.ab_onboarding.stg_events_raw
+[0m11:21:25.324503 [debug] [Thread-1 (]: Finished running node model.ab_onboarding.stg_assignments
+[0m11:21:25.324921 [debug] [Thread-4 (]: Began running node model.ab_onboarding.fct_exposures
+[0m11:21:25.325212 [info ] [Thread-4 (]: 3 of 5 START sql table model analytics_analytics.fct_exposures ................. [RUN]
+[0m11:21:25.325450 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.ab_onboarding.fct_exposures'
+[0m11:21:25.325600 [debug] [Thread-4 (]: Began compiling node model.ab_onboarding.fct_exposures
+[0m11:21:25.326870 [debug] [Thread-4 (]: Writing injected SQL for node "model.ab_onboarding.fct_exposures"
+[0m11:21:25.327240 [debug] [Thread-4 (]: Began executing node model.ab_onboarding.fct_exposures
+[0m11:21:25.338048 [debug] [Thread-4 (]: Writing runtime sql for node "model.ab_onboarding.fct_exposures"
+[0m11:21:25.338476 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:21:25.338640 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: BEGIN
+[0m11:21:25.338791 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m11:21:25.347104 [debug] [Thread-4 (]: SQL status: BEGIN in 0.008 seconds
+[0m11:21:25.347316 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:21:25.347501 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."fct_exposures__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- One row per user per experiment capturing first exposure and variant.
+with base as (
+  select
+    user_id,
+    experiment_key,
+    variant,
+    min(ts) as first_seen
+  from "abdb"."analytics_staging"."stg_events_raw"
+  group by 1,2,3
+),
+assign as (
+  -- Prefer stored assignment if it exists to enforce stickiness
+  select
+    a.user_id,
+    a.experiment_key,
+    a.variant,
+    a.assigned_at
+  from "abdb"."analytics_staging"."stg_assignments" a
+),
+choose as (
+  select
+    coalesce(assign.user_id, base.user_id) as user_id,
+    coalesce(assign.experiment_key, base.experiment_key) as experiment_key,
+    coalesce(assign.variant, base.variant) as variant,
+    coalesce(assign.assigned_at, base.first_seen) as exposure_ts
+  from base
+  full outer join assign
+    on base.user_id = assign.user_id
+   and base.experiment_key = assign.experiment_key
+)
+select *
+from choose
+  );
+  
+[0m11:21:25.353782 [debug] [Thread-4 (]: SQL status: SELECT 0 in 0.006 seconds
+[0m11:21:25.356927 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:21:25.357106 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+alter table "abdb"."analytics_analytics"."fct_exposures__dbt_tmp" rename to "fct_exposures"
+[0m11:21:25.357826 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:21:25.358438 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: COMMIT
+[0m11:21:25.358593 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:21:25.358731 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: COMMIT
+[0m11:21:25.359474 [debug] [Thread-4 (]: SQL status: COMMIT in 0.001 seconds
+[0m11:21:25.360591 [debug] [Thread-4 (]: Applying DROP to: "abdb"."analytics_analytics"."fct_exposures__dbt_backup"
+[0m11:21:25.361872 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:21:25.362033 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+drop table if exists "abdb"."analytics_analytics"."fct_exposures__dbt_backup" cascade
+[0m11:21:25.362495 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m11:21:25.363040 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: Close
+[0m11:21:25.363314 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108a51990>]}
+[0m11:21:25.363606 [info ] [Thread-4 (]: 3 of 5 OK created sql table model analytics_analytics.fct_exposures ............ [[32mSELECT 0[0m in 0.04s]
+[0m11:21:25.363847 [debug] [Thread-4 (]: Finished running node model.ab_onboarding.fct_exposures
+[0m11:21:25.364289 [debug] [Thread-2 (]: Began running node model.ab_onboarding.fct_conversions
+[0m11:21:25.364535 [info ] [Thread-2 (]: 4 of 5 START sql table model analytics_analytics.fct_conversions ............... [RUN]
+[0m11:21:25.364741 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.ab_onboarding.stg_events_raw, now model.ab_onboarding.fct_conversions)
+[0m11:21:25.364910 [debug] [Thread-2 (]: Began compiling node model.ab_onboarding.fct_conversions
+[0m11:21:25.366491 [debug] [Thread-2 (]: Writing injected SQL for node "model.ab_onboarding.fct_conversions"
+[0m11:21:25.366796 [debug] [Thread-2 (]: Began executing node model.ab_onboarding.fct_conversions
+[0m11:21:25.368291 [debug] [Thread-2 (]: Writing runtime sql for node "model.ab_onboarding.fct_conversions"
+[0m11:21:25.368590 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:21:25.368740 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: BEGIN
+[0m11:21:25.368878 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:21:25.377918 [debug] [Thread-2 (]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:25.378172 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:21:25.378391 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."fct_conversions__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- For onboarding: start vs complete (binary conversion per user)
+with starts as (
+  select distinct
+    user_id, experiment_key
+  from "abdb"."analytics_staging"."stg_events_raw"
+  where event_type = 'signup_start'
+),
+completes as (
+  select distinct
+    user_id, experiment_key
+  from "abdb"."analytics_staging"."stg_events_raw"
+  where event_type = 'signup_complete'
+),
+kyc7 as (
+  -- KYC completion within 7 days of start (guardrail)
+  select
+    e.user_id,
+    e.experiment_key,
+    min(e.ts) as kyc_ts
+  from "abdb"."analytics_staging"."stg_events_raw" e
+  where e.event_type = 'kyc_complete'
+  group by 1,2
+),
+joined as (
+  select
+    exp.user_id,
+    exp.experiment_key,
+    exp.variant,
+    exp.exposure_ts,
+    case when s.user_id is not null then 1 else 0 end as started,
+    case when c.user_id is not null then 1 else 0 end as completed,
+    case
+      when c.user_id is not null then 1
+      else 0
+    end as converted,
+    case
+      when k.kyc_ts is not null
+           and k.kyc_ts <= exp.exposure_ts + interval '7 days'
+      then 1 else 0
+    end as kyc_7d
+  from "abdb"."analytics_analytics"."fct_exposures" exp
+  left join starts s
+    on s.user_id = exp.user_id and s.experiment_key = exp.experiment_key
+  left join completes c
+    on c.user_id = exp.user_id and c.experiment_key = exp.experiment_key
+  left join kyc7 k
+    on k.user_id = exp.user_id and k.experiment_key = exp.experiment_key
+)
+select *
+from joined
+  );
+  
+[0m11:21:25.383280 [debug] [Thread-2 (]: SQL status: SELECT 0 in 0.005 seconds
+[0m11:21:25.384857 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:21:25.385015 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+alter table "abdb"."analytics_analytics"."fct_conversions__dbt_tmp" rename to "fct_conversions"
+[0m11:21:25.385567 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:21:25.386219 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: COMMIT
+[0m11:21:25.386385 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:21:25.386533 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: COMMIT
+[0m11:21:25.387127 [debug] [Thread-2 (]: SQL status: COMMIT in 0.000 seconds
+[0m11:21:25.388164 [debug] [Thread-2 (]: Applying DROP to: "abdb"."analytics_analytics"."fct_conversions__dbt_backup"
+[0m11:21:25.388514 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:21:25.388663 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+drop table if exists "abdb"."analytics_analytics"."fct_conversions__dbt_backup" cascade
+[0m11:21:25.389133 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m11:21:25.389678 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: Close
+[0m11:21:25.389936 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108a52e50>]}
+[0m11:21:25.390220 [info ] [Thread-2 (]: 4 of 5 OK created sql table model analytics_analytics.fct_conversions .......... [[32mSELECT 0[0m in 0.03s]
+[0m11:21:25.390464 [debug] [Thread-2 (]: Finished running node model.ab_onboarding.fct_conversions
+[0m11:21:25.390809 [debug] [Thread-3 (]: Began running node model.ab_onboarding.agg_experiment_day
+[0m11:21:25.391035 [info ] [Thread-3 (]: 5 of 5 START sql table model analytics_analytics.agg_experiment_day ............ [RUN]
+[0m11:21:25.391257 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.ab_onboarding.agg_experiment_day'
+[0m11:21:25.391405 [debug] [Thread-3 (]: Began compiling node model.ab_onboarding.agg_experiment_day
+[0m11:21:25.392639 [debug] [Thread-3 (]: Writing injected SQL for node "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.392953 [debug] [Thread-3 (]: Began executing node model.ab_onboarding.agg_experiment_day
+[0m11:21:25.394536 [debug] [Thread-3 (]: Writing runtime sql for node "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.394798 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.394948 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: BEGIN
+[0m11:21:25.395089 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m11:21:25.401286 [debug] [Thread-3 (]: SQL status: BEGIN in 0.006 seconds
+[0m11:21:25.401507 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.401686 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."agg_experiment_day__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Daily metrics by experiment and variant
+with events as (
+  select
+    date_trunc('day', exposure_ts) as day,
+    experiment_key,
+    variant,
+    count(*) as users_exposed,
+    sum(started) as started,
+    sum(completed) as completed,
+    avg(converted::float) as conversion_rate,
+    avg(kyc_7d::float) as kyc_7d_rate
+  from "abdb"."analytics_analytics"."fct_conversions"
+  group by 1,2,3
+)
+select *
+from events
+order by day desc, experiment_key, variant
+  );
+  
+[0m11:21:25.405591 [debug] [Thread-3 (]: SQL status: SELECT 0 in 0.004 seconds
+[0m11:21:25.408057 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.408228 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+alter table "abdb"."analytics_analytics"."agg_experiment_day__dbt_tmp" rename to "agg_experiment_day"
+[0m11:21:25.408914 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:21:25.409596 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: COMMIT
+[0m11:21:25.409759 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.409897 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: COMMIT
+[0m11:21:25.410726 [debug] [Thread-3 (]: SQL status: COMMIT in 0.001 seconds
+[0m11:21:25.411810 [debug] [Thread-3 (]: Applying DROP to: "abdb"."analytics_analytics"."agg_experiment_day__dbt_backup"
+[0m11:21:25.412108 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:21:25.412273 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+drop table if exists "abdb"."analytics_analytics"."agg_experiment_day__dbt_backup" cascade
+[0m11:21:25.412737 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m11:21:25.413289 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: Close
+[0m11:21:25.413552 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8f9c03ac-0d5d-4d67-9baa-cbd9038462b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108a815d0>]}
+[0m11:21:25.413838 [info ] [Thread-3 (]: 5 of 5 OK created sql table model analytics_analytics.agg_experiment_day ....... [[32mSELECT 0[0m in 0.02s]
+[0m11:21:25.414086 [debug] [Thread-3 (]: Finished running node model.ab_onboarding.agg_experiment_day
+[0m11:21:25.414656 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.414800 [debug] [MainThread]: On master: BEGIN
+[0m11:21:25.414921 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:21:25.422472 [debug] [MainThread]: SQL status: BEGIN in 0.008 seconds
+[0m11:21:25.422650 [debug] [MainThread]: On master: COMMIT
+[0m11:21:25.422781 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:25.422895 [debug] [MainThread]: On master: COMMIT
+[0m11:21:25.423239 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:21:25.423366 [debug] [MainThread]: On master: Close
+[0m11:21:25.423615 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:21:25.423943 [debug] [MainThread]: Connection 'model.ab_onboarding.stg_assignments' was properly closed.
+[0m11:21:25.424063 [debug] [MainThread]: Connection 'model.ab_onboarding.fct_conversions' was properly closed.
+[0m11:21:25.424180 [debug] [MainThread]: Connection 'model.ab_onboarding.fct_exposures' was properly closed.
+[0m11:21:25.424290 [debug] [MainThread]: Connection 'model.ab_onboarding.agg_experiment_day' was properly closed.
+[0m11:21:25.424546 [info ] [MainThread]: 
+[0m11:21:25.424729 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 0.38 seconds (0.38s).
+[0m11:21:25.425264 [debug] [MainThread]: Command end result
+[0m11:21:25.435783 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:21:25.436708 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:21:25.439631 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt/target/run_results.json
+[0m11:21:25.439800 [info ] [MainThread]: 
+[0m11:21:25.439992 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:21:25.440134 [info ] [MainThread]: 
+[0m11:21:25.440281 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5
+[0m11:21:25.440545 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m11:21:25.442125 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.2160698, "process_in_blocks": "0", "process_kernel_time": 0.218771, "process_mem_max_rss": "131252224", "process_out_blocks": "0", "process_user_time": 1.460456}
+[0m11:21:25.442345 [debug] [MainThread]: Command `dbt run` succeeded at 11:21:25.442308 after 1.22 seconds
+[0m11:21:25.442530 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074ee390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102aded90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102addf10>]}
+[0m11:21:25.442731 [debug] [MainThread]: Flushing usage events
+[0m11:21:25.935685 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:21:32.509138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109717b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109781d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10973fb50>]}
+
+
+============================== 11:21:32.511700 | 582687ab-2ad5-477c-9c8f-19fa538adb95 ==============================
+[0m11:21:32.511700 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:21:32.512008 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/barbaramariano/.dbt', 'debug': 'False', 'quiet': 'False', 'log_format': 'default', 'log_cache_events': 'False', 'warn_error': 'None', 'empty': 'None', 'static_parser': 'True', 'version_check': 'True', 'printer_width': '80', 'cache_selected_only': 'False', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'log_path': 'dbt/logs', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'write_json': 'True', 'introspect': 'True', 'indirect_selection': 'eager', 'target_path': 'None', 'use_colors': 'True', 'invocation_command': 'dbt test --project-dir dbt', 'use_experimental_parser': 'False'}
+[0m11:21:32.587812 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094bca90>]}
+[0m11:21:32.611960 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106dbc050>]}
+[0m11:21:32.612714 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m11:21:32.681194 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:21:32.740048 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:21:32.740275 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:21:32.760358 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a461050>]}
+[0m11:21:32.796846 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:21:32.798097 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:21:32.810830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a67b610>]}
+[0m11:21:32.811071 [info ] [MainThread]: Found 5 models, 7 data tests, 3 sources, 434 macros
+[0m11:21:32.811234 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e039d0>]}
+[0m11:21:32.812165 [info ] [MainThread]: 
+[0m11:21:32.812333 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:21:32.812456 [info ] [MainThread]: 
+[0m11:21:32.812684 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:21:32.814439 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb_analytics_analytics'
+[0m11:21:32.814654 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb_analytics_staging'
+[0m11:21:32.839111 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:21:32.839296 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:21:32.839460 [debug] [ThreadPool]: On list_abdb_analytics_analytics: BEGIN
+[0m11:21:32.839599 [debug] [ThreadPool]: On list_abdb_analytics_staging: BEGIN
+[0m11:21:32.839736 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:21:32.839857 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:21:32.869566 [debug] [ThreadPool]: SQL status: BEGIN in 0.030 seconds
+[0m11:21:32.869763 [debug] [ThreadPool]: SQL status: BEGIN in 0.030 seconds
+[0m11:21:32.869985 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:21:32.870145 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:21:32.870312 [debug] [ThreadPool]: On list_abdb_analytics_analytics: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_analytics"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_analytics'
+  
+[0m11:21:32.870481 [debug] [ThreadPool]: On list_abdb_analytics_staging: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_staging"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_staging'
+  
+[0m11:21:32.875955 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.005 seconds
+[0m11:21:32.876640 [debug] [ThreadPool]: On list_abdb_analytics_analytics: ROLLBACK
+[0m11:21:32.876780 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.006 seconds
+[0m11:21:32.877348 [debug] [ThreadPool]: On list_abdb_analytics_staging: ROLLBACK
+[0m11:21:32.877508 [debug] [ThreadPool]: On list_abdb_analytics_analytics: Close
+[0m11:21:32.878165 [debug] [ThreadPool]: On list_abdb_analytics_staging: Close
+[0m11:21:32.881393 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:32.881561 [debug] [MainThread]: On master: BEGIN
+[0m11:21:32.881750 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:21:32.894405 [debug] [MainThread]: SQL status: BEGIN in 0.013 seconds
+[0m11:21:32.894571 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:32.894764 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m11:21:32.898671 [debug] [MainThread]: SQL status: SELECT 2 in 0.004 seconds
+[0m11:21:32.899248 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '582687ab-2ad5-477c-9c8f-19fa538adb95', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109da9110>]}
+[0m11:21:32.899485 [debug] [MainThread]: On master: ROLLBACK
+[0m11:21:32.900075 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:32.900218 [debug] [MainThread]: On master: BEGIN
+[0m11:21:32.900760 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m11:21:32.900911 [debug] [MainThread]: On master: COMMIT
+[0m11:21:32.901048 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:32.901170 [debug] [MainThread]: On master: COMMIT
+[0m11:21:32.901500 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:21:32.901627 [debug] [MainThread]: On master: Close
+[0m11:21:32.903027 [debug] [Thread-1 (]: Began running node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:21:32.903202 [debug] [Thread-2 (]: Began running node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:21:32.903375 [debug] [Thread-3 (]: Began running node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:21:32.903546 [debug] [Thread-4 (]: Began running node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:21:32.903727 [info ] [Thread-1 (]: 1 of 7 START test accepted_values_fct_conversions_variant__A__B ................ [RUN]
+[0m11:21:32.903915 [info ] [Thread-2 (]: 2 of 7 START test not_null_fct_conversions_experiment_key ...................... [RUN]
+[0m11:21:32.904099 [info ] [Thread-3 (]: 3 of 7 START test not_null_fct_conversions_user_id ............................. [RUN]
+[0m11:21:32.904275 [info ] [Thread-4 (]: 4 of 7 START test not_null_fct_exposures_experiment_key ........................ [RUN]
+[0m11:21:32.904475 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_analytics, now test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550)
+[0m11:21:32.904650 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_staging, now test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820)
+[0m11:21:32.904850 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656'
+[0m11:21:32.934191 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf'
+[0m11:21:32.934447 [debug] [Thread-1 (]: Began compiling node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:21:32.934625 [debug] [Thread-2 (]: Began compiling node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:21:32.934781 [debug] [Thread-3 (]: Began compiling node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:21:32.934930 [debug] [Thread-4 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:21:32.942703 [debug] [Thread-1 (]: Writing injected SQL for node "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:21:32.946520 [debug] [Thread-2 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:21:32.948245 [debug] [Thread-3 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:21:32.950039 [debug] [Thread-4 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:21:32.950593 [debug] [Thread-1 (]: Began executing node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:21:32.950769 [debug] [Thread-2 (]: Began executing node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:21:32.957208 [debug] [Thread-3 (]: Began executing node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:21:32.957369 [debug] [Thread-4 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:21:32.958518 [debug] [Thread-1 (]: Writing runtime sql for node "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:21:32.959618 [debug] [Thread-2 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:21:32.960660 [debug] [Thread-3 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:21:32.961675 [debug] [Thread-4 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:21:32.962143 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:21:32.962343 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:21:32.962515 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:21:32.962709 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:21:32.962863 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: BEGIN
+[0m11:21:32.963034 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: BEGIN
+[0m11:21:32.963210 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: BEGIN
+[0m11:21:32.963387 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: BEGIN
+[0m11:21:32.963549 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:21:32.963704 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:21:32.963849 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m11:21:32.963992 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m11:21:32.978250 [debug] [Thread-2 (]: SQL status: BEGIN in 0.015 seconds
+[0m11:21:32.978438 [debug] [Thread-4 (]: SQL status: BEGIN in 0.014 seconds
+[0m11:21:32.978636 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:21:32.978820 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:21:32.978998 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select experiment_key
+from "abdb"."analytics_analytics"."fct_conversions"
+where experiment_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:32.979192 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select experiment_key
+from "abdb"."analytics_analytics"."fct_exposures"
+where experiment_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:32.979349 [debug] [Thread-3 (]: SQL status: BEGIN in 0.015 seconds
+[0m11:21:32.979598 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:21:32.979781 [debug] [Thread-1 (]: SQL status: BEGIN in 0.016 seconds
+[0m11:21:32.980052 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "abdb"."analytics_analytics"."fct_conversions"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:32.980239 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:21:32.980397 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:21:32.980544 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:21:32.980736 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        variant as value_field,
+        count(*) as n_records
+
+    from "abdb"."analytics_analytics"."fct_conversions"
+    group by variant
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'A','B'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:32.982664 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: ROLLBACK
+[0m11:21:32.982835 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:21:32.983421 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: ROLLBACK
+[0m11:21:32.984028 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: ROLLBACK
+[0m11:21:32.984179 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: Close
+[0m11:21:32.984700 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:21:32.984538 [info ] [Thread-2 (]: 2 of 7 PASS not_null_fct_conversions_experiment_key ............................ [[32mPASS[0m in 0.08s]
+[0m11:21:32.984892 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: Close
+[0m11:21:32.985037 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: Close
+[0m11:21:32.985596 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: ROLLBACK
+[0m11:21:32.985860 [debug] [Thread-2 (]: Finished running node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:21:32.986137 [info ] [Thread-4 (]: 4 of 7 PASS not_null_fct_exposures_experiment_key .............................. [[32mPASS[0m in 0.08s]
+[0m11:21:32.986399 [info ] [Thread-3 (]: 3 of 7 PASS not_null_fct_conversions_user_id ................................... [[32mPASS[0m in 0.08s]
+[0m11:21:32.986645 [debug] [Thread-2 (]: Began running node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:21:32.986877 [debug] [Thread-4 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:21:32.987067 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: Close
+[0m11:21:32.987293 [debug] [Thread-3 (]: Finished running node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:21:32.987467 [info ] [Thread-2 (]: 5 of 7 START test not_null_fct_exposures_user_id ............................... [RUN]
+[0m11:21:32.987656 [debug] [Thread-4 (]: Began running node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:21:32.988097 [debug] [Thread-3 (]: Began running node test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a
+[0m11:21:32.987935 [info ] [Thread-1 (]: 1 of 7 PASS accepted_values_fct_conversions_variant__A__B ...................... [[32mPASS[0m in 0.08s]
+[0m11:21:32.988349 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820, now test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd)
+[0m11:21:32.988535 [info ] [Thread-4 (]: 6 of 7 START test not_null_fct_exposures_variant ............................... [RUN]
+[0m11:21:32.988724 [info ] [Thread-3 (]: 7 of 7 START test relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_  [RUN]
+[0m11:21:32.988941 [debug] [Thread-1 (]: Finished running node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:21:32.989094 [debug] [Thread-2 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:21:32.989263 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf, now test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f)
+[0m11:21:32.989428 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656, now test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a)
+[0m11:21:32.992785 [debug] [Thread-2 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:21:32.992994 [debug] [Thread-4 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:21:32.993165 [debug] [Thread-3 (]: Began compiling node test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a
+[0m11:21:32.995585 [debug] [Thread-4 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:21:32.999228 [debug] [Thread-3 (]: Writing injected SQL for node "test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a"
+[0m11:21:32.999458 [debug] [Thread-2 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:21:32.999675 [debug] [Thread-4 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:21:33.000750 [debug] [Thread-2 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:21:33.001778 [debug] [Thread-4 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:21:33.001937 [debug] [Thread-3 (]: Began executing node test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a
+[0m11:21:33.003071 [debug] [Thread-3 (]: Writing runtime sql for node "test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a"
+[0m11:21:33.003321 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:21:33.003495 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: BEGIN
+[0m11:21:33.003664 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:21:33.003838 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:21:33.003999 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a"
+[0m11:21:33.004151 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: BEGIN
+[0m11:21:33.004405 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a: BEGIN
+[0m11:21:33.004570 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m11:21:33.004722 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m11:21:33.016437 [debug] [Thread-2 (]: SQL status: BEGIN in 0.013 seconds
+[0m11:21:33.016653 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:21:33.016824 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "abdb"."analytics_analytics"."fct_exposures"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:33.017911 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:21:33.018692 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: ROLLBACK
+[0m11:21:33.018865 [debug] [Thread-3 (]: SQL status: BEGIN in 0.014 seconds
+[0m11:21:33.019044 [debug] [Thread-4 (]: SQL status: BEGIN in 0.014 seconds
+[0m11:21:33.019226 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a"
+[0m11:21:33.019382 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:21:33.019520 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: Close
+[0m11:21:33.019720 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select conversion_rate as from_field
+    from "abdb"."analytics_analytics"."agg_experiment_day"
+    where conversion_rate is not null
+),
+
+parent as (
+    select experiment_key as to_field
+    from "abdb"."analytics_analytics"."fct_conversions"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:33.019930 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select variant
+from "abdb"."analytics_analytics"."fct_exposures"
+where variant is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:21:33.020229 [info ] [Thread-2 (]: 5 of 7 PASS not_null_fct_exposures_user_id ..................................... [[32mPASS[0m in 0.03s]
+[0m11:21:33.020565 [debug] [Thread-2 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:21:33.021170 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:21:33.021882 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: ROLLBACK
+[0m11:21:33.022068 [debug] [Thread-3 (]: Postgres adapter: Postgres error: operator does not exist: double precision = text
+LINE 30:     on child.from_field = parent.to_field
+                                 ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[0m11:21:33.022274 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a: ROLLBACK
+[0m11:21:33.022473 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: Close
+[0m11:21:33.022685 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a: Close
+[0m11:21:33.022952 [info ] [Thread-4 (]: 6 of 7 PASS not_null_fct_exposures_variant ..................................... [[32mPASS[0m in 0.03s]
+[0m11:21:33.023232 [debug] [Thread-4 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:21:33.028636 [debug] [Thread-3 (]: Database Error in test relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_ (models/marts/schema.yml)
+  operator does not exist: double precision = text
+  LINE 30:     on child.from_field = parent.to_field
+                                   ^
+  HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+  compiled code at target/run/ab_onboarding/models/marts/schema.yml/relationships_agg_experiment_d_bf23a99860c3ed3120bc5fbf433f6ccf.sql
+[0m11:21:33.028894 [error] [Thread-3 (]: 7 of 7 ERROR relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_  [[31mERROR[0m in 0.04s]
+[0m11:21:33.029154 [debug] [Thread-3 (]: Finished running node test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a
+[0m11:21:33.029390 [debug] [Thread-7 (]: Marking all children of 'test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a' to be skipped because of status 'error'.  Reason: Database Error in test relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_ (models/marts/schema.yml)
+  operator does not exist: double precision = text
+  LINE 30:     on child.from_field = parent.to_field
+                                   ^
+  HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+  compiled code at target/run/ab_onboarding/models/marts/schema.yml/relationships_agg_experiment_d_bf23a99860c3ed3120bc5fbf433f6ccf.sql.
+[0m11:21:33.030220 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:33.030366 [debug] [MainThread]: On master: BEGIN
+[0m11:21:33.030485 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:21:33.039383 [debug] [MainThread]: SQL status: BEGIN in 0.009 seconds
+[0m11:21:33.039581 [debug] [MainThread]: On master: COMMIT
+[0m11:21:33.039721 [debug] [MainThread]: Using postgres connection "master"
+[0m11:21:33.039839 [debug] [MainThread]: On master: COMMIT
+[0m11:21:33.040214 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:21:33.040385 [debug] [MainThread]: On master: Close
+[0m11:21:33.040589 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:21:33.040719 [debug] [MainThread]: Connection 'test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550' was properly closed.
+[0m11:21:33.040838 [debug] [MainThread]: Connection 'test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd' was properly closed.
+[0m11:21:33.040961 [debug] [MainThread]: Connection 'test.ab_onboarding.relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_.535e74753a' was properly closed.
+[0m11:21:33.041078 [debug] [MainThread]: Connection 'test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f' was properly closed.
+[0m11:21:33.041304 [info ] [MainThread]: 
+[0m11:21:33.041464 [info ] [MainThread]: Finished running 7 data tests in 0 hours 0 minutes and 0.23 seconds (0.23s).
+[0m11:21:33.042081 [debug] [MainThread]: Command end result
+[0m11:21:33.053412 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:21:33.054258 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:21:33.057602 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt/target/run_results.json
+[0m11:21:33.057746 [info ] [MainThread]: 
+[0m11:21:33.057908 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m11:21:33.058041 [info ] [MainThread]: 
+[0m11:21:33.058216 [error] [MainThread]: [31mFailure in test relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_ (models/marts/schema.yml)[0m
+[0m11:21:33.058387 [error] [MainThread]:   Database Error in test relationships_agg_experiment_day_conversion_rate__experiment_key__ref_fct_conversions_ (models/marts/schema.yml)
+  operator does not exist: double precision = text
+  LINE 30:     on child.from_field = parent.to_field
+                                   ^
+  HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+  compiled code at target/run/ab_onboarding/models/marts/schema.yml/relationships_agg_experiment_d_bf23a99860c3ed3120bc5fbf433f6ccf.sql
+[0m11:21:33.058520 [info ] [MainThread]: 
+[0m11:21:33.058668 [info ] [MainThread]:   compiled code at target/compiled/ab_onboarding/models/marts/schema.yml/relationships_agg_experiment_d_bf23a99860c3ed3120bc5fbf433f6ccf.sql
+[0m11:21:33.058794 [info ] [MainThread]: 
+[0m11:21:33.058929 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=7
+[0m11:21:33.059876 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.57988256, "process_in_blocks": "0", "process_kernel_time": 0.184574, "process_mem_max_rss": "128319488", "process_out_blocks": "0", "process_user_time": 0.96952}
+[0m11:21:33.060391 [debug] [MainThread]: Command `dbt test` failed at 11:21:33.060346 after 0.58 seconds
+[0m11:21:33.060593 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109c47950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aaaaa90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aaab2d0>]}
+[0m11:21:33.060783 [debug] [MainThread]: Flushing usage events
+[0m11:21:33.450977 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:28:31.839972 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110e5af50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110ee9910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110eea050>]}
+
+
+============================== 11:28:31.843297 | c012586a-3ac6-4140-9f24-b0a057d480c2 ==============================
+[0m11:28:31.843297 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:28:31.843654 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/barbaramariano/.dbt', 'static_parser': 'True', 'indirect_selection': 'eager', 'write_json': 'True', 'warn_error': 'None', 'target_path': 'None', 'version_check': 'True', 'empty': 'False', 'cache_selected_only': 'False', 'introspect': 'True', 'log_path': 'dbt/logs', 'use_experimental_parser': 'False', 'debug': 'False', 'partial_parse': 'True', 'no_print': 'None', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'use_colors': 'True', 'printer_width': '80', 'invocation_command': 'dbt run --project-dir dbt', 'quiet': 'False', 'log_format': 'default'}
+[0m11:28:31.941657 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110fad490>]}
+[0m11:28:31.965537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104ab2c50>]}
+[0m11:28:31.966096 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m11:28:32.081019 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:28:32.141902 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m11:28:32.142354 [debug] [MainThread]: Partial parsing: updated file: ab_onboarding://models/marts/schema.yml
+[0m11:28:32.279408 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values`. Arguments to generic tests
+should be nested under the `arguments` property.`
+[0m11:28:32.279741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11221b950>]}
+[0m11:28:32.359998 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112098990>]}
+[0m11:28:32.396583 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:28:32.398166 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:28:32.407499 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d670d0>]}
+[0m11:28:32.407746 [info ] [MainThread]: Found 5 models, 13 data tests, 3 sources, 434 macros
+[0m11:28:32.407917 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050fe190>]}
+[0m11:28:32.408803 [info ] [MainThread]: 
+[0m11:28:32.408982 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:28:32.409119 [info ] [MainThread]: 
+[0m11:28:32.409331 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:28:32.411008 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb'
+[0m11:28:32.411256 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb'
+[0m11:28:32.436468 [debug] [ThreadPool]: Using postgres connection "list_abdb"
+[0m11:28:32.436649 [debug] [ThreadPool]: Using postgres connection "list_abdb"
+[0m11:28:32.436818 [debug] [ThreadPool]: On list_abdb: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:28:32.436969 [debug] [ThreadPool]: On list_abdb: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:28:32.437104 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:32.437227 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:32.552789 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.115 seconds
+[0m11:28:32.553038 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.116 seconds
+[0m11:28:32.553734 [debug] [ThreadPool]: On list_abdb: Close
+[0m11:28:32.554373 [debug] [ThreadPool]: On list_abdb: Close
+[0m11:28:32.555163 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_abdb, now list_abdb_analytics_analytics)
+[0m11:28:32.555380 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_abdb, now list_abdb_analytics_staging)
+[0m11:28:32.558231 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:28:32.559148 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:28:32.559296 [debug] [ThreadPool]: On list_abdb_analytics_analytics: BEGIN
+[0m11:28:32.559432 [debug] [ThreadPool]: On list_abdb_analytics_staging: BEGIN
+[0m11:28:32.559560 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:28:32.559683 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:28:32.571289 [debug] [ThreadPool]: SQL status: BEGIN in 0.012 seconds
+[0m11:28:32.571458 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:28:32.571618 [debug] [ThreadPool]: On list_abdb_analytics_analytics: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_analytics"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_analytics'
+  
+[0m11:28:32.573526 [debug] [ThreadPool]: SQL status: BEGIN in 0.014 seconds
+[0m11:28:32.573687 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:28:32.573849 [debug] [ThreadPool]: On list_abdb_analytics_staging: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_staging"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_staging'
+  
+[0m11:28:32.574599 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.003 seconds
+[0m11:28:32.575217 [debug] [ThreadPool]: On list_abdb_analytics_analytics: ROLLBACK
+[0m11:28:32.575648 [debug] [ThreadPool]: On list_abdb_analytics_analytics: Close
+[0m11:28:32.575798 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.002 seconds
+[0m11:28:32.576653 [debug] [ThreadPool]: On list_abdb_analytics_staging: ROLLBACK
+[0m11:28:32.577040 [debug] [ThreadPool]: On list_abdb_analytics_staging: Close
+[0m11:28:32.579351 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.579520 [debug] [MainThread]: On master: BEGIN
+[0m11:28:32.579651 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:28:32.585648 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m11:28:32.585798 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.585988 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m11:28:32.588970 [debug] [MainThread]: SQL status: SELECT 2 in 0.003 seconds
+[0m11:28:32.589532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110fad290>]}
+[0m11:28:32.589763 [debug] [MainThread]: On master: ROLLBACK
+[0m11:28:32.590166 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.590298 [debug] [MainThread]: On master: BEGIN
+[0m11:28:32.590920 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m11:28:32.591057 [debug] [MainThread]: On master: COMMIT
+[0m11:28:32.591180 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.591299 [debug] [MainThread]: On master: COMMIT
+[0m11:28:32.591670 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:32.591906 [debug] [MainThread]: On master: Close
+[0m11:28:32.593290 [debug] [Thread-1 (]: Began running node model.ab_onboarding.stg_assignments
+[0m11:28:32.593462 [debug] [Thread-2 (]: Began running node model.ab_onboarding.stg_events_raw
+[0m11:28:32.593698 [info ] [Thread-1 (]: 1 of 5 START sql view model analytics_staging.stg_assignments .................. [RUN]
+[0m11:28:32.593942 [info ] [Thread-2 (]: 2 of 5 START sql view model analytics_staging.stg_events_raw ................... [RUN]
+[0m11:28:32.594153 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_analytics, now model.ab_onboarding.stg_assignments)
+[0m11:28:32.594445 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_staging, now model.ab_onboarding.stg_events_raw)
+[0m11:28:32.594618 [debug] [Thread-1 (]: Began compiling node model.ab_onboarding.stg_assignments
+[0m11:28:32.594786 [debug] [Thread-2 (]: Began compiling node model.ab_onboarding.stg_events_raw
+[0m11:28:32.598678 [debug] [Thread-1 (]: Writing injected SQL for node "model.ab_onboarding.stg_assignments"
+[0m11:28:32.599901 [debug] [Thread-2 (]: Writing injected SQL for node "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.600289 [debug] [Thread-2 (]: Began executing node model.ab_onboarding.stg_events_raw
+[0m11:28:32.600450 [debug] [Thread-1 (]: Began executing node model.ab_onboarding.stg_assignments
+[0m11:28:32.616039 [debug] [Thread-2 (]: Writing runtime sql for node "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.617659 [debug] [Thread-1 (]: Writing runtime sql for node "model.ab_onboarding.stg_assignments"
+[0m11:28:32.618303 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.618491 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.618633 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: BEGIN
+[0m11:28:32.618795 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: BEGIN
+[0m11:28:32.618941 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:28:32.619085 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:28:32.628730 [debug] [Thread-2 (]: SQL status: BEGIN in 0.010 seconds
+[0m11:28:32.628970 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.629142 [debug] [Thread-1 (]: SQL status: BEGIN in 0.010 seconds
+[0m11:28:32.629348 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+
+  create view "abdb"."analytics_staging"."stg_events_raw__dbt_tmp"
+    
+    
+  as (
+    with src as (
+  select
+    id,
+    ts,
+    user_id,
+    experiment_key,
+    variant,
+    event_type,
+    metadata
+  from "abdb"."public"."events_raw"
+)
+select
+  id,
+  ts,
+  user_id,
+  lower(experiment_key) as experiment_key,
+  upper(variant) as variant,
+  lower(event_type) as event_type,
+  metadata
+from src
+  );
+[0m11:28:32.629541 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.629766 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+
+  create view "abdb"."analytics_staging"."stg_assignments__dbt_tmp"
+    
+    
+  as (
+    with src as (
+  select
+    user_id,
+    experiment_key,
+    variant,
+    assigned_at
+  from "abdb"."public"."assignments"
+)
+select
+  user_id,
+  lower(experiment_key) as experiment_key,
+  upper(variant) as variant,
+  assigned_at
+from src
+  );
+[0m11:28:32.633601 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.004 seconds
+[0m11:28:32.633758 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.004 seconds
+[0m11:28:32.636823 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.638932 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.639125 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+alter table "abdb"."analytics_staging"."stg_events_raw" rename to "stg_events_raw__dbt_backup"
+[0m11:28:32.639316 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+alter table "abdb"."analytics_staging"."stg_assignments" rename to "stg_assignments__dbt_backup"
+[0m11:28:32.640323 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.640472 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.641804 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.643062 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.643232 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+alter table "abdb"."analytics_staging"."stg_assignments__dbt_tmp" rename to "stg_assignments"
+[0m11:28:32.643407 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+alter table "abdb"."analytics_staging"."stg_events_raw__dbt_tmp" rename to "stg_events_raw"
+[0m11:28:32.644246 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.644400 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.651505 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: COMMIT
+[0m11:28:32.652200 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: COMMIT
+[0m11:28:32.652398 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.652558 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.652711 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: COMMIT
+[0m11:28:32.652852 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: COMMIT
+[0m11:28:32.658892 [debug] [Thread-2 (]: SQL status: COMMIT in 0.006 seconds
+[0m11:28:32.661545 [debug] [Thread-2 (]: Applying DROP to: "abdb"."analytics_staging"."stg_events_raw__dbt_backup"
+[0m11:28:32.661712 [debug] [Thread-1 (]: SQL status: COMMIT in 0.009 seconds
+[0m11:28:32.663733 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.stg_events_raw"
+[0m11:28:32.665457 [debug] [Thread-1 (]: Applying DROP to: "abdb"."analytics_staging"."stg_assignments__dbt_backup"
+[0m11:28:32.665639 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_events_raw"} */
+drop view if exists "abdb"."analytics_staging"."stg_events_raw__dbt_backup" cascade
+[0m11:28:32.665975 [debug] [Thread-1 (]: Using postgres connection "model.ab_onboarding.stg_assignments"
+[0m11:28:32.666182 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.stg_assignments"} */
+drop view if exists "abdb"."analytics_staging"."stg_assignments__dbt_backup" cascade
+[0m11:28:32.671063 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m11:28:32.671250 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m11:28:32.672271 [debug] [Thread-2 (]: On model.ab_onboarding.stg_events_raw: Close
+[0m11:28:32.672810 [debug] [Thread-1 (]: On model.ab_onboarding.stg_assignments: Close
+[0m11:28:32.673859 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1125fb0d0>]}
+[0m11:28:32.674025 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111cf8450>]}
+[0m11:28:32.674385 [info ] [Thread-2 (]: 2 of 5 OK created sql view model analytics_staging.stg_events_raw .............. [[32mCREATE VIEW[0m in 0.08s]
+[0m11:28:32.674679 [info ] [Thread-1 (]: 1 of 5 OK created sql view model analytics_staging.stg_assignments ............. [[32mCREATE VIEW[0m in 0.08s]
+[0m11:28:32.674978 [debug] [Thread-2 (]: Finished running node model.ab_onboarding.stg_events_raw
+[0m11:28:32.675219 [debug] [Thread-1 (]: Finished running node model.ab_onboarding.stg_assignments
+[0m11:28:32.675563 [debug] [Thread-4 (]: Began running node model.ab_onboarding.fct_exposures
+[0m11:28:32.675818 [info ] [Thread-4 (]: 3 of 5 START sql table model analytics_analytics.fct_exposures ................. [RUN]
+[0m11:28:32.676042 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.ab_onboarding.fct_exposures'
+[0m11:28:32.676190 [debug] [Thread-4 (]: Began compiling node model.ab_onboarding.fct_exposures
+[0m11:28:32.677470 [debug] [Thread-4 (]: Writing injected SQL for node "model.ab_onboarding.fct_exposures"
+[0m11:28:32.677795 [debug] [Thread-4 (]: Began executing node model.ab_onboarding.fct_exposures
+[0m11:28:32.688009 [debug] [Thread-4 (]: Writing runtime sql for node "model.ab_onboarding.fct_exposures"
+[0m11:28:32.689056 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.689293 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: BEGIN
+[0m11:28:32.689463 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m11:28:32.697234 [debug] [Thread-4 (]: SQL status: BEGIN in 0.008 seconds
+[0m11:28:32.697440 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.697618 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."fct_exposures__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- One row per user per experiment capturing first exposure and variant.
+with base as (
+  select
+    user_id,
+    experiment_key,
+    variant,
+    min(ts) as first_seen
+  from "abdb"."analytics_staging"."stg_events_raw"
+  group by 1,2,3
+),
+assign as (
+  -- Prefer stored assignment if it exists to enforce stickiness
+  select
+    a.user_id,
+    a.experiment_key,
+    a.variant,
+    a.assigned_at
+  from "abdb"."analytics_staging"."stg_assignments" a
+),
+choose as (
+  select
+    coalesce(assign.user_id, base.user_id) as user_id,
+    coalesce(assign.experiment_key, base.experiment_key) as experiment_key,
+    coalesce(assign.variant, base.variant) as variant,
+    coalesce(assign.assigned_at, base.first_seen) as exposure_ts
+  from base
+  full outer join assign
+    on base.user_id = assign.user_id
+   and base.experiment_key = assign.experiment_key
+)
+select *
+from choose
+  );
+  
+[0m11:28:32.704174 [debug] [Thread-4 (]: SQL status: SELECT 0 in 0.006 seconds
+[0m11:28:32.707287 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.707464 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+alter table "abdb"."analytics_analytics"."fct_exposures" rename to "fct_exposures__dbt_backup"
+[0m11:28:32.708044 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:28:32.709375 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.709540 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+alter table "abdb"."analytics_analytics"."fct_exposures__dbt_tmp" rename to "fct_exposures"
+[0m11:28:32.710235 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.710858 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: COMMIT
+[0m11:28:32.711016 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.711152 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: COMMIT
+[0m11:28:32.712135 [debug] [Thread-4 (]: SQL status: COMMIT in 0.001 seconds
+[0m11:28:32.713144 [debug] [Thread-4 (]: Applying DROP to: "abdb"."analytics_analytics"."fct_exposures__dbt_backup"
+[0m11:28:32.714400 [debug] [Thread-4 (]: Using postgres connection "model.ab_onboarding.fct_exposures"
+[0m11:28:32.714556 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_exposures"} */
+drop table if exists "abdb"."analytics_analytics"."fct_exposures__dbt_backup" cascade
+[0m11:28:32.716579 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m11:28:32.717122 [debug] [Thread-4 (]: On model.ab_onboarding.fct_exposures: Close
+[0m11:28:32.717398 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1126cc6d0>]}
+[0m11:28:32.717697 [info ] [Thread-4 (]: 3 of 5 OK created sql table model analytics_analytics.fct_exposures ............ [[32mSELECT 0[0m in 0.04s]
+[0m11:28:32.717949 [debug] [Thread-4 (]: Finished running node model.ab_onboarding.fct_exposures
+[0m11:28:32.718309 [debug] [Thread-2 (]: Began running node model.ab_onboarding.fct_conversions
+[0m11:28:32.718533 [info ] [Thread-2 (]: 4 of 5 START sql table model analytics_analytics.fct_conversions ............... [RUN]
+[0m11:28:32.718729 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.ab_onboarding.stg_events_raw, now model.ab_onboarding.fct_conversions)
+[0m11:28:32.718884 [debug] [Thread-2 (]: Began compiling node model.ab_onboarding.fct_conversions
+[0m11:28:32.720457 [debug] [Thread-2 (]: Writing injected SQL for node "model.ab_onboarding.fct_conversions"
+[0m11:28:32.720773 [debug] [Thread-2 (]: Began executing node model.ab_onboarding.fct_conversions
+[0m11:28:32.722317 [debug] [Thread-2 (]: Writing runtime sql for node "model.ab_onboarding.fct_conversions"
+[0m11:28:32.722619 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.722770 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: BEGIN
+[0m11:28:32.722907 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:28:32.728949 [debug] [Thread-2 (]: SQL status: BEGIN in 0.006 seconds
+[0m11:28:32.729134 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.729329 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."fct_conversions__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- For onboarding: start vs complete (binary conversion per user)
+with starts as (
+  select distinct
+    user_id, experiment_key
+  from "abdb"."analytics_staging"."stg_events_raw"
+  where event_type = 'signup_start'
+),
+completes as (
+  select distinct
+    user_id, experiment_key
+  from "abdb"."analytics_staging"."stg_events_raw"
+  where event_type = 'signup_complete'
+),
+kyc7 as (
+  -- KYC completion within 7 days of start (guardrail)
+  select
+    e.user_id,
+    e.experiment_key,
+    min(e.ts) as kyc_ts
+  from "abdb"."analytics_staging"."stg_events_raw" e
+  where e.event_type = 'kyc_complete'
+  group by 1,2
+),
+joined as (
+  select
+    exp.user_id,
+    exp.experiment_key,
+    exp.variant,
+    exp.exposure_ts,
+    case when s.user_id is not null then 1 else 0 end as started,
+    case when c.user_id is not null then 1 else 0 end as completed,
+    case
+      when c.user_id is not null then 1
+      else 0
+    end as converted,
+    case
+      when k.kyc_ts is not null
+           and k.kyc_ts <= exp.exposure_ts + interval '7 days'
+      then 1 else 0
+    end as kyc_7d
+  from "abdb"."analytics_analytics"."fct_exposures" exp
+  left join starts s
+    on s.user_id = exp.user_id and s.experiment_key = exp.experiment_key
+  left join completes c
+    on c.user_id = exp.user_id and c.experiment_key = exp.experiment_key
+  left join kyc7 k
+    on k.user_id = exp.user_id and k.experiment_key = exp.experiment_key
+)
+select *
+from joined
+  );
+  
+[0m11:28:32.733813 [debug] [Thread-2 (]: SQL status: SELECT 0 in 0.004 seconds
+[0m11:28:32.735234 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.735394 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+alter table "abdb"."analytics_analytics"."fct_conversions" rename to "fct_conversions__dbt_backup"
+[0m11:28:32.736095 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:28:32.737338 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.737501 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+alter table "abdb"."analytics_analytics"."fct_conversions__dbt_tmp" rename to "fct_conversions"
+[0m11:28:32.737955 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:28:32.739723 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: COMMIT
+[0m11:28:32.739895 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.740036 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: COMMIT
+[0m11:28:32.740587 [debug] [Thread-2 (]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:32.741610 [debug] [Thread-2 (]: Applying DROP to: "abdb"."analytics_analytics"."fct_conversions__dbt_backup"
+[0m11:28:32.741910 [debug] [Thread-2 (]: Using postgres connection "model.ab_onboarding.fct_conversions"
+[0m11:28:32.742057 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.fct_conversions"} */
+drop table if exists "abdb"."analytics_analytics"."fct_conversions__dbt_backup" cascade
+[0m11:28:32.743327 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m11:28:32.743826 [debug] [Thread-2 (]: On model.ab_onboarding.fct_conversions: Close
+[0m11:28:32.744076 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12010e790>]}
+[0m11:28:32.744371 [info ] [Thread-2 (]: 4 of 5 OK created sql table model analytics_analytics.fct_conversions .......... [[32mSELECT 0[0m in 0.03s]
+[0m11:28:32.744618 [debug] [Thread-2 (]: Finished running node model.ab_onboarding.fct_conversions
+[0m11:28:32.744965 [debug] [Thread-3 (]: Began running node model.ab_onboarding.agg_experiment_day
+[0m11:28:32.745180 [info ] [Thread-3 (]: 5 of 5 START sql table model analytics_analytics.agg_experiment_day ............ [RUN]
+[0m11:28:32.745396 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.ab_onboarding.agg_experiment_day'
+[0m11:28:32.745548 [debug] [Thread-3 (]: Began compiling node model.ab_onboarding.agg_experiment_day
+[0m11:28:32.746792 [debug] [Thread-3 (]: Writing injected SQL for node "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.747084 [debug] [Thread-3 (]: Began executing node model.ab_onboarding.agg_experiment_day
+[0m11:28:32.748547 [debug] [Thread-3 (]: Writing runtime sql for node "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.748831 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.748979 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: BEGIN
+[0m11:28:32.749112 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m11:28:32.756276 [debug] [Thread-3 (]: SQL status: BEGIN in 0.007 seconds
+[0m11:28:32.756465 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.756626 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+
+  
+    
+
+  create  table "abdb"."analytics_analytics"."agg_experiment_day__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Daily metrics by experiment and variant
+with events as (
+  select
+    date_trunc('day', exposure_ts) as day,
+    experiment_key,
+    variant,
+    count(*) as users_exposed,
+    sum(started) as started,
+    sum(completed) as completed,
+    avg(converted::float) as conversion_rate,
+    avg(kyc_7d::float) as kyc_7d_rate
+  from "abdb"."analytics_analytics"."fct_conversions"
+  group by 1,2,3
+)
+select *
+from events
+order by day desc, experiment_key, variant
+  );
+  
+[0m11:28:32.759873 [debug] [Thread-3 (]: SQL status: SELECT 0 in 0.003 seconds
+[0m11:28:32.761550 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.761731 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+alter table "abdb"."analytics_analytics"."agg_experiment_day" rename to "agg_experiment_day__dbt_backup"
+[0m11:28:32.762383 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:28:32.763712 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.763868 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+alter table "abdb"."analytics_analytics"."agg_experiment_day__dbt_tmp" rename to "agg_experiment_day"
+[0m11:28:32.764339 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:28:32.764947 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: COMMIT
+[0m11:28:32.765089 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.765224 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: COMMIT
+[0m11:28:32.765773 [debug] [Thread-3 (]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:32.766789 [debug] [Thread-3 (]: Applying DROP to: "abdb"."analytics_analytics"."agg_experiment_day__dbt_backup"
+[0m11:28:32.767067 [debug] [Thread-3 (]: Using postgres connection "model.ab_onboarding.agg_experiment_day"
+[0m11:28:32.767212 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "model.ab_onboarding.agg_experiment_day"} */
+drop table if exists "abdb"."analytics_analytics"."agg_experiment_day__dbt_backup" cascade
+[0m11:28:32.768664 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m11:28:32.769260 [debug] [Thread-3 (]: On model.ab_onboarding.agg_experiment_day: Close
+[0m11:28:32.769566 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c012586a-3ac6-4140-9f24-b0a057d480c2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1125a66d0>]}
+[0m11:28:32.769881 [info ] [Thread-3 (]: 5 of 5 OK created sql table model analytics_analytics.agg_experiment_day ....... [[32mSELECT 0[0m in 0.02s]
+[0m11:28:32.770143 [debug] [Thread-3 (]: Finished running node model.ab_onboarding.agg_experiment_day
+[0m11:28:32.770848 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.770983 [debug] [MainThread]: On master: BEGIN
+[0m11:28:32.771117 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:28:32.791148 [debug] [MainThread]: SQL status: BEGIN in 0.020 seconds
+[0m11:28:32.791397 [debug] [MainThread]: On master: COMMIT
+[0m11:28:32.791542 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:32.791666 [debug] [MainThread]: On master: COMMIT
+[0m11:28:32.792035 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:32.792221 [debug] [MainThread]: On master: Close
+[0m11:28:32.792444 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:28:32.792581 [debug] [MainThread]: Connection 'model.ab_onboarding.stg_assignments' was properly closed.
+[0m11:28:32.792702 [debug] [MainThread]: Connection 'model.ab_onboarding.fct_conversions' was properly closed.
+[0m11:28:32.792817 [debug] [MainThread]: Connection 'model.ab_onboarding.fct_exposures' was properly closed.
+[0m11:28:32.792928 [debug] [MainThread]: Connection 'model.ab_onboarding.agg_experiment_day' was properly closed.
+[0m11:28:32.793128 [info ] [MainThread]: 
+[0m11:28:32.793301 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 0.38 seconds (0.38s).
+[0m11:28:32.793805 [debug] [MainThread]: Command end result
+[0m11:28:32.807345 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:28:32.808382 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:28:32.811246 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt/target/run_results.json
+[0m11:28:32.811420 [info ] [MainThread]: 
+[0m11:28:32.811611 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:28:32.811747 [info ] [MainThread]: 
+[0m11:28:32.811889 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5
+[0m11:28:32.812194 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 5 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m11:28:32.813746 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.0133898, "process_in_blocks": "0", "process_kernel_time": 0.247303, "process_mem_max_rss": "133644288", "process_out_blocks": "0", "process_user_time": 1.168586}
+[0m11:28:32.814004 [debug] [MainThread]: Command `dbt run` succeeded at 11:28:32.813958 after 1.01 seconds
+[0m11:28:32.814194 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110ee9ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1028a7fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1028a5e10>]}
+[0m11:28:32.814380 [debug] [MainThread]: Flushing usage events
+[0m11:28:33.371107 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:28:34.163136 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10972ba50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10972b750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1097ba0d0>]}
+
+
+============================== 11:28:34.165421 | 8a28d605-e7d9-47f3-a963-ab31ecba9126 ==============================
+[0m11:28:34.165421 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:28:34.165765 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'static_parser': 'True', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': 'dbt/logs', 'empty': 'None', 'warn_error': 'None', 'invocation_command': 'dbt test --project-dir dbt', 'no_print': 'None', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'introspect': 'True', 'use_colors': 'True', 'printer_width': '80', 'fail_fast': 'False', 'profiles_dir': '/Users/barbaramariano/.dbt', 'write_json': 'True', 'target_path': 'None', 'debug': 'False', 'version_check': 'True'}
+[0m11:28:34.234678 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109753990>]}
+[0m11:28:34.258304 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106db7190>]}
+[0m11:28:34.258707 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m11:28:34.323906 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:28:34.376828 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:28:34.377031 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:28:34.396782 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a44db90>]}
+[0m11:28:34.433873 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:28:34.434839 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:28:34.445770 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a71fe90>]}
+[0m11:28:34.446015 [info ] [MainThread]: Found 5 models, 13 data tests, 3 sources, 434 macros
+[0m11:28:34.446183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a58ad90>]}
+[0m11:28:34.447210 [info ] [MainThread]: 
+[0m11:28:34.447393 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:28:34.447522 [info ] [MainThread]: 
+[0m11:28:34.447748 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:28:34.449453 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb_analytics_analytics'
+[0m11:28:34.449717 [debug] [ThreadPool]: Acquiring new postgres connection 'list_abdb_analytics_staging'
+[0m11:28:34.504032 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:28:34.504312 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:28:34.504636 [debug] [ThreadPool]: On list_abdb_analytics_analytics: BEGIN
+[0m11:28:34.504828 [debug] [ThreadPool]: On list_abdb_analytics_staging: BEGIN
+[0m11:28:34.505002 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:34.505215 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:34.524594 [debug] [ThreadPool]: SQL status: BEGIN in 0.019 seconds
+[0m11:28:34.524812 [debug] [ThreadPool]: SQL status: BEGIN in 0.020 seconds
+[0m11:28:34.525018 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_staging"
+[0m11:28:34.525175 [debug] [ThreadPool]: Using postgres connection "list_abdb_analytics_analytics"
+[0m11:28:34.525345 [debug] [ThreadPool]: On list_abdb_analytics_staging: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_staging"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_staging'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_staging'
+  
+[0m11:28:34.525522 [debug] [ThreadPool]: On list_abdb_analytics_analytics: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "list_abdb_analytics_analytics"} */
+select
+      'abdb' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics_analytics'
+    union all
+    select
+      'abdb' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics_analytics'
+  
+[0m11:28:34.531029 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.005 seconds
+[0m11:28:34.531196 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.006 seconds
+[0m11:28:34.531852 [debug] [ThreadPool]: On list_abdb_analytics_analytics: ROLLBACK
+[0m11:28:34.532388 [debug] [ThreadPool]: On list_abdb_analytics_staging: ROLLBACK
+[0m11:28:34.533455 [debug] [ThreadPool]: On list_abdb_analytics_analytics: Close
+[0m11:28:34.533597 [debug] [ThreadPool]: On list_abdb_analytics_staging: Close
+[0m11:28:34.536375 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.536547 [debug] [MainThread]: On master: BEGIN
+[0m11:28:34.536676 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:28:34.547758 [debug] [MainThread]: SQL status: BEGIN in 0.011 seconds
+[0m11:28:34.547909 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.548090 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m11:28:34.552439 [debug] [MainThread]: SQL status: SELECT 2 in 0.004 seconds
+[0m11:28:34.552992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8a28d605-e7d9-47f3-a963-ab31ecba9126', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109084d90>]}
+[0m11:28:34.553202 [debug] [MainThread]: On master: ROLLBACK
+[0m11:28:34.553844 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.553969 [debug] [MainThread]: On master: BEGIN
+[0m11:28:34.555040 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m11:28:34.555169 [debug] [MainThread]: On master: COMMIT
+[0m11:28:34.555288 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.555404 [debug] [MainThread]: On master: COMMIT
+[0m11:28:34.555961 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:34.556086 [debug] [MainThread]: On master: Close
+[0m11:28:34.557111 [debug] [Thread-1 (]: Began running node test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976
+[0m11:28:34.557283 [debug] [Thread-2 (]: Began running node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:28:34.557473 [debug] [Thread-3 (]: Began running node test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7
+[0m11:28:34.557803 [debug] [Thread-4 (]: Began running node test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1
+[0m11:28:34.557664 [info ] [Thread-1 (]: 1 of 13 START test accepted_values_agg_experiment_day_variant__A__B ............ [RUN]
+[0m11:28:34.558014 [info ] [Thread-2 (]: 2 of 13 START test accepted_values_fct_conversions_variant__A__B ............... [RUN]
+[0m11:28:34.558181 [info ] [Thread-3 (]: 3 of 13 START test accepted_values_fct_exposures_variant__A__B ................. [RUN]
+[0m11:28:34.558445 [info ] [Thread-4 (]: 4 of 13 START test not_null_agg_experiment_day_conversion_rate ................. [RUN]
+[0m11:28:34.558660 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_analytics, now test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976)
+[0m11:28:34.558836 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_abdb_analytics_staging, now test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550)
+[0m11:28:34.559039 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7'
+[0m11:28:34.559229 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1'
+[0m11:28:34.559401 [debug] [Thread-1 (]: Began compiling node test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976
+[0m11:28:34.559553 [debug] [Thread-2 (]: Began compiling node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:28:34.559707 [debug] [Thread-3 (]: Began compiling node test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7
+[0m11:28:34.559847 [debug] [Thread-4 (]: Began compiling node test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1
+[0m11:28:34.567673 [debug] [Thread-1 (]: Writing injected SQL for node "test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976"
+[0m11:28:34.569399 [debug] [Thread-2 (]: Writing injected SQL for node "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:28:34.571724 [debug] [Thread-3 (]: Writing injected SQL for node "test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7"
+[0m11:28:34.575243 [debug] [Thread-4 (]: Writing injected SQL for node "test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1"
+[0m11:28:34.575697 [debug] [Thread-2 (]: Began executing node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:28:34.575896 [debug] [Thread-1 (]: Began executing node test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976
+[0m11:28:34.581785 [debug] [Thread-3 (]: Began executing node test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7
+[0m11:28:34.583254 [debug] [Thread-2 (]: Writing runtime sql for node "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:28:34.584296 [debug] [Thread-1 (]: Writing runtime sql for node "test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976"
+[0m11:28:34.584446 [debug] [Thread-4 (]: Began executing node test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1
+[0m11:28:34.585402 [debug] [Thread-3 (]: Writing runtime sql for node "test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7"
+[0m11:28:34.586545 [debug] [Thread-4 (]: Writing runtime sql for node "test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1"
+[0m11:28:34.586754 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:28:34.586959 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976"
+[0m11:28:34.587156 [debug] [Thread-2 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: BEGIN
+[0m11:28:34.587371 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7"
+[0m11:28:34.587532 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976: BEGIN
+[0m11:28:34.587703 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1"
+[0m11:28:34.587856 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:28:34.588006 [debug] [Thread-3 (]: On test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7: BEGIN
+[0m11:28:34.588154 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:28:34.588300 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1: BEGIN
+[0m11:28:34.588532 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m11:28:34.588745 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m11:28:34.604607 [debug] [Thread-2 (]: SQL status: BEGIN in 0.017 seconds
+[0m11:28:34.604809 [debug] [Thread-1 (]: SQL status: BEGIN in 0.017 seconds
+[0m11:28:34.604993 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"
+[0m11:28:34.605200 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976"
+[0m11:28:34.605388 [debug] [Thread-2 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        variant as value_field,
+        count(*) as n_records
+
+    from "abdb"."analytics_analytics"."fct_conversions"
+    group by variant
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'A','B'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.605584 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        variant as value_field,
+        count(*) as n_records
+
+    from "abdb"."analytics_analytics"."agg_experiment_day"
+    group by variant
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'A','B'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.605756 [debug] [Thread-3 (]: SQL status: BEGIN in 0.017 seconds
+[0m11:28:34.605917 [debug] [Thread-4 (]: SQL status: BEGIN in 0.017 seconds
+[0m11:28:34.606166 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7"
+[0m11:28:34.606323 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1"
+[0m11:28:34.606494 [debug] [Thread-3 (]: On test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        variant as value_field,
+        count(*) as n_records
+
+    from "abdb"."analytics_analytics"."fct_exposures"
+    group by variant
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'A','B'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.606670 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select conversion_rate
+from "abdb"."analytics_analytics"."agg_experiment_day"
+where conversion_rate is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.608064 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:28:34.608251 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:28:34.608419 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:28:34.610222 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976: ROLLBACK
+[0m11:28:34.610412 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.004 seconds
+[0m11:28:34.611036 [debug] [Thread-2 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: ROLLBACK
+[0m11:28:34.611648 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1: ROLLBACK
+[0m11:28:34.612207 [debug] [Thread-3 (]: On test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7: ROLLBACK
+[0m11:28:34.612358 [debug] [Thread-1 (]: On test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976: Close
+[0m11:28:34.612679 [info ] [Thread-1 (]: 1 of 13 PASS accepted_values_agg_experiment_day_variant__A__B .................. [[32mPASS[0m in 0.05s]
+[0m11:28:34.612928 [debug] [Thread-1 (]: Finished running node test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976
+[0m11:28:34.613099 [debug] [Thread-1 (]: Began running node test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51
+[0m11:28:34.613280 [info ] [Thread-1 (]: 5 of 13 START test not_null_agg_experiment_day_day ............................. [RUN]
+[0m11:28:34.613463 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.accepted_values_agg_experiment_day_variant__A__B.94e8ed7976, now test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51)
+[0m11:28:34.613617 [debug] [Thread-1 (]: Began compiling node test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51
+[0m11:28:34.613757 [debug] [Thread-2 (]: On test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550: Close
+[0m11:28:34.613908 [debug] [Thread-3 (]: On test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7: Close
+[0m11:28:34.614051 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1: Close
+[0m11:28:34.615788 [debug] [Thread-1 (]: Writing injected SQL for node "test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51"
+[0m11:28:34.616067 [info ] [Thread-2 (]: 2 of 13 PASS accepted_values_fct_conversions_variant__A__B ..................... [[32mPASS[0m in 0.06s]
+[0m11:28:34.616328 [info ] [Thread-3 (]: 3 of 13 PASS accepted_values_fct_exposures_variant__A__B ....................... [[32mPASS[0m in 0.06s]
+[0m11:28:34.616577 [info ] [Thread-4 (]: 4 of 13 PASS not_null_agg_experiment_day_conversion_rate ....................... [[32mPASS[0m in 0.06s]
+[0m11:28:34.616889 [debug] [Thread-2 (]: Finished running node test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550
+[0m11:28:34.617131 [debug] [Thread-3 (]: Finished running node test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7
+[0m11:28:34.617360 [debug] [Thread-4 (]: Finished running node test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1
+[0m11:28:34.617507 [debug] [Thread-1 (]: Began executing node test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51
+[0m11:28:34.617685 [debug] [Thread-2 (]: Began running node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:28:34.617876 [debug] [Thread-3 (]: Began running node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:28:34.618086 [debug] [Thread-4 (]: Began running node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:28:34.619257 [debug] [Thread-1 (]: Writing runtime sql for node "test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51"
+[0m11:28:34.619435 [info ] [Thread-2 (]: 6 of 13 START test not_null_fct_conversions_experiment_key ..................... [RUN]
+[0m11:28:34.619605 [info ] [Thread-3 (]: 7 of 13 START test not_null_fct_conversions_user_id ............................ [RUN]
+[0m11:28:34.619787 [info ] [Thread-4 (]: 8 of 13 START test not_null_fct_exposures_experiment_key ....................... [RUN]
+[0m11:28:34.620044 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.accepted_values_fct_conversions_variant__A__B.4453959550, now test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820)
+[0m11:28:34.620230 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.accepted_values_fct_exposures_variant__A__B.f9933b28c7, now test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656)
+[0m11:28:34.620434 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51"
+[0m11:28:34.620594 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_agg_experiment_day_conversion_rate.a6ccabcca1, now test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf)
+[0m11:28:34.620752 [debug] [Thread-2 (]: Began compiling node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:28:34.620899 [debug] [Thread-3 (]: Began compiling node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:28:34.621064 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51: BEGIN
+[0m11:28:34.621222 [debug] [Thread-4 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:28:34.623322 [debug] [Thread-2 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:28:34.625072 [debug] [Thread-3 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:28:34.625342 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:28:34.628145 [debug] [Thread-4 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:28:34.629963 [debug] [Thread-4 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:28:34.632753 [debug] [Thread-4 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:28:34.632955 [debug] [Thread-2 (]: Began executing node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:28:34.633217 [debug] [Thread-3 (]: Began executing node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:28:34.634351 [debug] [Thread-2 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:28:34.635659 [debug] [Thread-3 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:28:34.635964 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:28:34.636245 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: BEGIN
+[0m11:28:34.636475 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:28:34.636658 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m11:28:34.636845 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: BEGIN
+[0m11:28:34.637042 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:28:34.637268 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:28:34.637427 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: BEGIN
+[0m11:28:34.637637 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m11:28:34.640584 [debug] [Thread-1 (]: SQL status: BEGIN in 0.015 seconds
+[0m11:28:34.640780 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51"
+[0m11:28:34.640954 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select day
+from "abdb"."analytics_analytics"."agg_experiment_day"
+where day is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.642887 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:28:34.643591 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51: ROLLBACK
+[0m11:28:34.644461 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51: Close
+[0m11:28:34.644850 [info ] [Thread-1 (]: 5 of 13 PASS not_null_agg_experiment_day_day ................................... [[32mPASS[0m in 0.03s]
+[0m11:28:34.645272 [debug] [Thread-1 (]: Finished running node test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51
+[0m11:28:34.645505 [debug] [Thread-1 (]: Began running node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:28:34.645685 [info ] [Thread-1 (]: 9 of 13 START test not_null_fct_exposures_user_id .............................. [RUN]
+[0m11:28:34.646068 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_agg_experiment_day_day.0523f18e51, now test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd)
+[0m11:28:34.646248 [debug] [Thread-1 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:28:34.646463 [debug] [Thread-2 (]: SQL status: BEGIN in 0.009 seconds
+[0m11:28:34.646634 [debug] [Thread-4 (]: SQL status: BEGIN in 0.010 seconds
+[0m11:28:34.648770 [debug] [Thread-1 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:28:34.648978 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"
+[0m11:28:34.649158 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"
+[0m11:28:34.649409 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select experiment_key
+from "abdb"."analytics_analytics"."fct_conversions"
+where experiment_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.649710 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select experiment_key
+from "abdb"."analytics_analytics"."fct_exposures"
+where experiment_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.649886 [debug] [Thread-3 (]: SQL status: BEGIN in 0.012 seconds
+[0m11:28:34.650109 [debug] [Thread-1 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:28:34.650309 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"
+[0m11:28:34.652775 [debug] [Thread-1 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:28:34.652966 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.003 seconds
+[0m11:28:34.653118 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.003 seconds
+[0m11:28:34.653288 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "abdb"."analytics_analytics"."fct_conversions"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.654056 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: ROLLBACK
+[0m11:28:34.654821 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: ROLLBACK
+[0m11:28:34.655063 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:28:34.655328 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: BEGIN
+[0m11:28:34.655724 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:28:34.655958 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf: Close
+[0m11:28:34.656113 [debug] [Thread-2 (]: On test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820: Close
+[0m11:28:34.656271 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:28:34.656587 [info ] [Thread-4 (]: 8 of 13 PASS not_null_fct_exposures_experiment_key ............................. [[32mPASS[0m in 0.04s]
+[0m11:28:34.656885 [info ] [Thread-2 (]: 6 of 13 PASS not_null_fct_conversions_experiment_key ........................... [[32mPASS[0m in 0.04s]
+[0m11:28:34.657741 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: ROLLBACK
+[0m11:28:34.658006 [debug] [Thread-4 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf
+[0m11:28:34.658237 [debug] [Thread-2 (]: Finished running node test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820
+[0m11:28:34.658473 [debug] [Thread-4 (]: Began running node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:28:34.658711 [debug] [Thread-2 (]: Began running node test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732
+[0m11:28:34.658862 [debug] [Thread-3 (]: On test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656: Close
+[0m11:28:34.659053 [info ] [Thread-4 (]: 10 of 13 START test not_null_fct_exposures_variant ............................. [RUN]
+[0m11:28:34.659238 [info ] [Thread-2 (]: 11 of 13 START test relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_  [RUN]
+[0m11:28:34.659661 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_exposures_experiment_key.440e5b53cf, now test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f)
+[0m11:28:34.659507 [info ] [Thread-3 (]: 7 of 13 PASS not_null_fct_conversions_user_id .................................. [[32mPASS[0m in 0.04s]
+[0m11:28:34.659886 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_conversions_experiment_key.69b98d2820, now test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732)
+[0m11:28:34.660065 [debug] [Thread-4 (]: Began compiling node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:28:34.660294 [debug] [Thread-3 (]: Finished running node test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656
+[0m11:28:34.660459 [debug] [Thread-2 (]: Began compiling node test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732
+[0m11:28:34.662607 [debug] [Thread-4 (]: Writing injected SQL for node "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:28:34.662848 [debug] [Thread-3 (]: Began running node test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce
+[0m11:28:34.666537 [debug] [Thread-2 (]: Writing injected SQL for node "test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732"
+[0m11:28:34.666712 [debug] [Thread-1 (]: SQL status: BEGIN in 0.011 seconds
+[0m11:28:34.666937 [info ] [Thread-3 (]: 12 of 13 START test relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_  [RUN]
+[0m11:28:34.667164 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"
+[0m11:28:34.667354 [debug] [Thread-4 (]: Began executing node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:28:34.667534 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_conversions_user_id.db2fef2656, now test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce)
+[0m11:28:34.667946 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "abdb"."analytics_analytics"."fct_exposures"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.668139 [debug] [Thread-2 (]: Began executing node test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732
+[0m11:28:34.669361 [debug] [Thread-4 (]: Writing runtime sql for node "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:28:34.669562 [debug] [Thread-3 (]: Began compiling node test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce
+[0m11:28:34.670792 [debug] [Thread-2 (]: Writing runtime sql for node "test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732"
+[0m11:28:34.671022 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:28:34.673416 [debug] [Thread-3 (]: Writing injected SQL for node "test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce"
+[0m11:28:34.674208 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: ROLLBACK
+[0m11:28:34.674399 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:28:34.674657 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732"
+[0m11:28:34.674851 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: BEGIN
+[0m11:28:34.675002 [debug] [Thread-3 (]: Began executing node test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce
+[0m11:28:34.675168 [debug] [Thread-2 (]: On test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732: BEGIN
+[0m11:28:34.675321 [debug] [Thread-1 (]: On test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd: Close
+[0m11:28:34.675483 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m11:28:34.677486 [debug] [Thread-3 (]: Writing runtime sql for node "test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce"
+[0m11:28:34.677654 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m11:28:34.677966 [info ] [Thread-1 (]: 9 of 13 PASS not_null_fct_exposures_user_id .................................... [[32mPASS[0m in 0.03s]
+[0m11:28:34.678396 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce"
+[0m11:28:34.678636 [debug] [Thread-1 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd
+[0m11:28:34.678836 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce: BEGIN
+[0m11:28:34.679049 [debug] [Thread-1 (]: Began running node test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470
+[0m11:28:34.679525 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m11:28:34.679716 [info ] [Thread-1 (]: 13 of 13 START test unique_fct_exposures__user_id_experiment_key_ .............. [RUN]
+[0m11:28:34.679961 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ab_onboarding.not_null_fct_exposures_user_id.b45d1606fd, now test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470)
+[0m11:28:34.680116 [debug] [Thread-1 (]: Began compiling node test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470
+[0m11:28:34.682807 [debug] [Thread-1 (]: Writing injected SQL for node "test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470"
+[0m11:28:34.683097 [debug] [Thread-1 (]: Began executing node test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470
+[0m11:28:34.684234 [debug] [Thread-1 (]: Writing runtime sql for node "test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470"
+[0m11:28:34.684556 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470"
+[0m11:28:34.684729 [debug] [Thread-1 (]: On test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470: BEGIN
+[0m11:28:34.684880 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:28:34.689154 [debug] [Thread-2 (]: SQL status: BEGIN in 0.011 seconds
+[0m11:28:34.689356 [debug] [Thread-4 (]: SQL status: BEGIN in 0.014 seconds
+[0m11:28:34.689542 [debug] [Thread-2 (]: Using postgres connection "test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732"
+[0m11:28:34.689740 [debug] [Thread-4 (]: Using postgres connection "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"
+[0m11:28:34.689986 [debug] [Thread-2 (]: On test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select experiment_key as from_field
+    from "abdb"."analytics_analytics"."agg_experiment_day"
+    where experiment_key is not null
+),
+
+parent as (
+    select experiment_key as to_field
+    from "abdb"."analytics_analytics"."fct_conversions"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.690268 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select variant
+from "abdb"."analytics_analytics"."fct_exposures"
+where variant is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.690441 [debug] [Thread-3 (]: SQL status: BEGIN in 0.011 seconds
+[0m11:28:34.690683 [debug] [Thread-3 (]: Using postgres connection "test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce"
+[0m11:28:34.690869 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select experiment_key as from_field
+    from "abdb"."analytics_analytics"."fct_conversions"
+    where experiment_key is not null
+),
+
+parent as (
+    select experiment_key as to_field
+    from "abdb"."analytics_analytics"."fct_exposures"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.691296 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:28:34.692011 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: ROLLBACK
+[0m11:28:34.692180 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.002 seconds
+[0m11:28:34.692365 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:28:34.693012 [debug] [Thread-2 (]: On test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732: ROLLBACK
+[0m11:28:34.693181 [debug] [Thread-1 (]: SQL status: BEGIN in 0.008 seconds
+[0m11:28:34.693329 [debug] [Thread-4 (]: On test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f: Close
+[0m11:28:34.693858 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce: ROLLBACK
+[0m11:28:34.694064 [debug] [Thread-1 (]: Using postgres connection "test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470"
+[0m11:28:34.694514 [debug] [Thread-2 (]: On test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732: Close
+[0m11:28:34.694359 [info ] [Thread-4 (]: 10 of 13 PASS not_null_fct_exposures_variant ................................... [[32mPASS[0m in 0.03s]
+[0m11:28:34.694742 [debug] [Thread-1 (]: On test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470: /* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "ab_onboarding", "target_name": "dev", "node_id": "test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    (user_id || '|' || experiment_key) as unique_field,
+    count(*) as n_records
+
+from "abdb"."analytics_analytics"."fct_exposures"
+where (user_id || '|' || experiment_key) is not null
+group by (user_id || '|' || experiment_key)
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m11:28:34.695234 [debug] [Thread-4 (]: Finished running node test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f
+[0m11:28:34.695033 [info ] [Thread-2 (]: 11 of 13 PASS relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_  [[32mPASS[0m in 0.04s]
+[0m11:28:34.695502 [debug] [Thread-3 (]: On test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce: Close
+[0m11:28:34.695783 [debug] [Thread-2 (]: Finished running node test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732
+[0m11:28:34.696042 [info ] [Thread-3 (]: 12 of 13 PASS relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_  [[32mPASS[0m in 0.03s]
+[0m11:28:34.696272 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m11:28:34.696547 [debug] [Thread-3 (]: Finished running node test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce
+[0m11:28:34.697190 [debug] [Thread-1 (]: On test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470: ROLLBACK
+[0m11:28:34.697648 [debug] [Thread-1 (]: On test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470: Close
+[0m11:28:34.697887 [info ] [Thread-1 (]: 13 of 13 PASS unique_fct_exposures__user_id_experiment_key_ .................... [[32mPASS[0m in 0.02s]
+[0m11:28:34.698114 [debug] [Thread-1 (]: Finished running node test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470
+[0m11:28:34.698721 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.698870 [debug] [MainThread]: On master: BEGIN
+[0m11:28:34.698995 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:28:34.709457 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m11:28:34.709668 [debug] [MainThread]: On master: COMMIT
+[0m11:28:34.709810 [debug] [MainThread]: Using postgres connection "master"
+[0m11:28:34.709932 [debug] [MainThread]: On master: COMMIT
+[0m11:28:34.710310 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:28:34.710483 [debug] [MainThread]: On master: Close
+[0m11:28:34.710728 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:28:34.710982 [debug] [MainThread]: Connection 'test.ab_onboarding.unique_fct_exposures__user_id_experiment_key_.6752884470' was properly closed.
+[0m11:28:34.711333 [debug] [MainThread]: Connection 'test.ab_onboarding.relationships_agg_experiment_day_experiment_key__experiment_key__ref_fct_conversions_.e671d95732' was properly closed.
+[0m11:28:34.711497 [debug] [MainThread]: Connection 'test.ab_onboarding.relationships_fct_conversions_experiment_key__experiment_key__ref_fct_exposures_.0a7573d2ce' was properly closed.
+[0m11:28:34.711857 [debug] [MainThread]: Connection 'test.ab_onboarding.not_null_fct_exposures_variant.c716e76c8f' was properly closed.
+[0m11:28:34.712065 [info ] [MainThread]: 
+[0m11:28:34.712374 [info ] [MainThread]: Finished running 13 data tests in 0 hours 0 minutes and 0.26 seconds (0.26s).
+[0m11:28:34.713366 [debug] [MainThread]: Command end result
+[0m11:28:34.725590 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m11:28:34.727308 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m11:28:34.730877 [debug] [MainThread]: Wrote artifact RunExecutionResult to dbt/target/run_results.json
+[0m11:28:34.731059 [info ] [MainThread]: 
+[0m11:28:34.731243 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:28:34.731384 [info ] [MainThread]: 
+[0m11:28:34.731535 [info ] [MainThread]: Done. PASS=13 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=13
+[0m11:28:34.732316 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 0.6059736, "process_in_blocks": "0", "process_kernel_time": 0.167298, "process_mem_max_rss": "127991808", "process_out_blocks": "0", "process_user_time": 1.005823}
+[0m11:28:34.732564 [debug] [MainThread]: Command `dbt test` succeeded at 11:28:34.732508 after 0.61 seconds
+[0m11:28:34.732771 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104daad90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104da9f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109722590>]}
+[0m11:28:34.732962 [debug] [MainThread]: Flushing usage events
+[0m11:28:35.126600 [debug] [MainThread]: An error was encountered while trying to flush usage events

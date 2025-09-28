@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: fct_exposures
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: experiment_key
+        tests:
+          - not_null
+      - name: variant
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['A', 'B']
+    tests:
+      - unique:
+          # one row per user × experiment
+          column_name: "(user_id || '|' || experiment_key)"
+
+  - name: fct_conversions
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: experiment_key
+        tests:
+          - not_null
+          # ensure keys seen here exist in exposures
+          - relationships:
+              to: ref('fct_exposures')
+              field: experiment_key
+      - name: variant
+        tests:
+          - accepted_values:
+              values: ['A', 'B']
+
+  - name: agg_experiment_day
+    columns:
+      - name: day
+        tests:
+          - not_null
+      - name: experiment_key
+        tests:
+          - relationships:
+              to: ref('fct_conversions')
+              field: experiment_key
+      - name: variant
+        tests:
+          - accepted_values:
+              values: ['A', 'B']
+      - name: conversion_rate
+        tests:
+          - not_null

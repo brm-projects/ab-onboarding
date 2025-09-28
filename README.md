@@ -51,19 +51,27 @@ The focus is on **progressive onboarding vs. full KYC upfront** — a realistic 
 ## Repository Structure
 
 ab-onboarding/
-├─ api/ # FastAPI service
-│ ├─ main.py
-│ ├─ config.py
-│ └─ experiments.yaml
-├─ sql/ # database schema and seeds
-│ └─ init.sql
-├─ dashboard/ # Streamlit app
-│ └─ app.py
-├─ analysis/ # Jupyter notebooks for analysis
-│ └─ 01_exploration.ipynb
-├─ tests/ # pytest unit tests
-│ └─ test_assignment.py
-├─ requirements.txt # Python dependencies
-├─ docker-compose.yml # containers for Postgres etc.
-├─ .gitignore
-└─ README.md
+├── api/
+├── analysis/
+├── dashboard/
+├── dbt/
+│   ├── dbt_project.yml
+│   ├── models/
+│   │   ├── sources.yml
+│   │   ├── staging/
+│   │   │   ├── stg_events_raw.sql
+│   │   │   └── stg_assignments.sql
+│   │   └── marts/
+│   │       ├── fct_exposures.sql
+│   │       ├── fct_conversions.sql
+│   │       ├── agg_experiment_day.sql
+│   │       └── schema.yml
+│   └── macros/
+├── sql/
+│   └── init.sql
+├── tests/
+├── docker-compose.yml
+├── requirements.txt
+├── .gitignore
+└── README.md
+
