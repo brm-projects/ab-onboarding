@@ -75,6 +75,27 @@ ab-onboarding/
 ├── .gitignore
 └── README.md
 
+
+## Results
+
+After simulating ~3,000 users...
+
+**Conversion rates (with 95% CI):**
+
+![Conversion rates](results_conversion.png)
+
+**Bayesian posterior distribution of lift (B − A):**
+
+![Posterior lift](results_lift.png)
+
+**How to read the charts**
+
+- **Conversion rates (left chart):** Variant B’s bar is clearly higher than Variant A’s, with narrow error bars. This means the improvement we see is real, not just random noise.
+
+- **Lift distribution (right chart):** The entire curve is to the right of zero, meaning B almost certainly converts more users than A. The shaded range shows we expect the true improvement to be around +12% to +19%.
+
+=> Variant B consistently outperforms A, and the compliance guardrail (KYC within 7 days) also improved. In a real fintech setting, this would justify rolling out Variant B to all new users.
+
 ## Quickstart
 
 ### Prerequisites
