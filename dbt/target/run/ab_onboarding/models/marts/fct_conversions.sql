@@ -2,7 +2,7 @@
   
     
 
-  create  table "abdb"."analytics_analytics"."fct_conversions__dbt_tmp"
+  create  table "abdb"."analytics"."fct_conversions__dbt_tmp"
   
   
     as
@@ -12,13 +12,13 @@
 with starts as (
   select distinct
     user_id, experiment_key
-  from "abdb"."analytics_staging"."stg_events_raw"
+  from "abdb"."staging"."stg_events_raw"
   where event_type = 'signup_start'
 ),
 completes as (
   select distinct
     user_id, experiment_key
-  from "abdb"."analytics_staging"."stg_events_raw"
+  from "abdb"."staging"."stg_events_raw"
   where event_type = 'signup_complete'
 ),
 kyc7 as (
@@ -27,7 +27,7 @@ kyc7 as (
     e.user_id,
     e.experiment_key,
     min(e.ts) as kyc_ts
-  from "abdb"."analytics_staging"."stg_events_raw" e
+  from "abdb"."staging"."stg_events_raw" e
   where e.event_type = 'kyc_complete'
   group by 1,2
 ),
@@ -48,7 +48,7 @@ joined as (
            and k.kyc_ts <= exp.exposure_ts + interval '7 days'
       then 1 else 0
     end as kyc_7d
-  from "abdb"."analytics_analytics"."fct_exposures" exp
+  from "abdb"."analytics"."fct_exposures" exp
   left join starts s
     on s.user_id = exp.user_id and s.experiment_key = exp.experiment_key
   left join completes c

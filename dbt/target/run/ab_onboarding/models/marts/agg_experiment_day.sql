@@ -2,7 +2,7 @@
   
     
 
-  create  table "abdb"."analytics_analytics"."agg_experiment_day__dbt_tmp"
+  create  table "abdb"."analytics"."agg_experiment_day__dbt_tmp"
   
   
     as
@@ -19,7 +19,7 @@ with events as (
     sum(completed) as completed,
     avg(converted::float) as conversion_rate,
     avg(kyc_7d::float) as kyc_7d_rate
-  from "abdb"."analytics_analytics"."fct_conversions"
+  from "abdb"."analytics"."fct_conversions"
   group by 1,2,3
 )
 select *

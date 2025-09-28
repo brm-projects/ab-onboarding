@@ -1,5 +1,5 @@
 
-  create view "abdb"."analytics_staging"."stg_assignments__dbt_tmp"
+  create view "abdb"."staging"."stg_assignments__dbt_tmp"
     
     
   as (

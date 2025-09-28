@@ -2,7 +2,7 @@
   
     
 
-  create  table "abdb"."analytics_analytics"."fct_exposures__dbt_tmp"
+  create  table "abdb"."analytics"."fct_exposures__dbt_tmp"
   
   
     as
@@ -15,7 +15,7 @@ with base as (
     experiment_key,
     variant,
     min(ts) as first_seen
-  from "abdb"."analytics_staging"."stg_events_raw"
+  from "abdb"."staging"."stg_events_raw"
   group by 1,2,3
 ),
 assign as (
@@ -25,7 +25,7 @@ assign as (
     a.experiment_key,
     a.variant,
     a.assigned_at
-  from "abdb"."analytics_staging"."stg_assignments" a
+  from "abdb"."staging"."stg_assignments" a
 ),
 choose as (
   select

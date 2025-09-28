@@ -1,5 +1,5 @@
 
-  create view "abdb"."analytics_staging"."stg_events_raw__dbt_tmp"
+  create view "abdb"."staging"."stg_events_raw__dbt_tmp"
     
     
   as (

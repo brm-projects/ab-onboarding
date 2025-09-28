@@ -16,7 +16,7 @@ with all_values as (
         variant as value_field,
         count(*) as n_records
 
-    from "abdb"."analytics_analytics"."fct_exposures"
+    from "abdb"."analytics"."fct_exposures"
     group by variant
 
 )
