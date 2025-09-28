@@ -75,3 +75,34 @@ ab-onboarding/
 ├── .gitignore
 └── README.md
 
+## Quickstart
+
+### Prerequisites
+- Docker + Docker Compose
+- Python 3.11+ (project tested on 3.11/3.13)
+
+```bash
+# 1) Clone + env
+git clone https://github.com/brm-projects/ab-onboarding
+cd ab-onboarding
+cp .env.example .env
+
+# 2) Python env + deps
+make venv
+make deps
+
+# 3) Postgres
+make up
+
+# 4) API (new terminal)
+make api   # http://127.0.0.1:8000/health
+
+# 5) Generate traffic
+make simulate
+
+# 6) Build marts
+make dbt && make test
+
+# 7) Analyze (frequentist and Bayesian)
+make analyze
+make analyze-bayes
