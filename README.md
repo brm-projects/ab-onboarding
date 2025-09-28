@@ -1,129 +1,160 @@
-# A/B Testing Platform (Fintech Onboarding)
+# AB Onboarding Experimentation Platform
 
-This project is a minimal experimentation platform designed to simulate how a fintech startup could test different **onboarding flows**.  
-
-The focus is on **progressive onboarding vs. full KYC upfront** — a realistic and high-impact problem in digital banking.  
-
-## Experiment
-
-- **Variant A (Control):** Full KYC at the start (name, address, ID, selfie).  
-- **Variant B (Treatment):** Progressive onboarding (email + phone first, full KYC later).  
-
-### Metrics
-- **Primary metric:** % of users completing sign-up.  
-- **Guardrails:** % of users completing KYC within 7 days, simulated fraud rate.  
+End-to-end experimentation stack for A/B testing in a fintech onboarding scenario.  
+Built with **FastAPI**, **Postgres**, **dbt**, and analysis scripts in **Python** (frequentist & Bayesian).
 
 ---
 
-## Project Goals
+## Context
 
-1. **Assignment Service (FastAPI)**  
-   - Deterministic randomization into A/B groups.  
-   - Sticky assignments: each user always sees the same variant.  
-   - Event logging (`signup_start`, `signup_complete`, `kyc_complete`).  
+We test two flows in user acquisition:
 
-2. **Data Pipeline (SQL + dbt)**  
-   - Store raw events.  
-   - Transform into exposure and conversion metrics.  
+- **Variant A**: traditional onboarding (all steps upfront).  
+- **Variant B**: progressive onboarding (stages over time).  
 
-3. **Analysis (Python)**  
-   - Classical A/B test (two-proportion z-test).  
-   - CUPED variance reduction.  
-   - Optional Bayesian analysis.  
-
-4. **Dashboard (Streamlit)**  
-   - Visualize traffic allocation, conversion rates, guardrail metrics.  
-   - Provide a “ship / hold / stop” recommendation.  
+The goal is to measure **conversion to account completion**, while monitoring a compliance guardrail: **KYC completion within 7 days**.
 
 ---
 
-## Tech Stack
+## Stack
 
-- **FastAPI** for assignment and event logging  
-- **Postgres** for data storage  
-- **dbt** for transformations  
-- **Python (pandas, statsmodels, PyMC)** for analysis  
-- **Streamlit** for experiment dashboard  
-- **Docker Compose** for local setup  
+- **FastAPI** — lightweight API serving variant assignments.  
+- **Postgres** — event storage.  
+- **dbt** — transforms raw events into staging and analytics marts.  
+- **Python scripts** — simulate traffic and analyze results (frequentist & Bayesian).  
+- **Docker Compose** — runs Postgres locally.  
+- **Makefile** — one-liners for the full workflow.
 
 ---
-
-## Repository Structure
-
-ab-onboarding/
-├── api/
-├── analysis/
-├── dashboard/
-├── dbt/
-│   ├── dbt_project.yml
-│   ├── models/
-│   │   ├── sources.yml
-│   │   ├── staging/
-│   │   │   ├── stg_events_raw.sql
-│   │   │   └── stg_assignments.sql
-│   │   └── marts/
-│   │       ├── fct_exposures.sql
-│   │       ├── fct_conversions.sql
-│   │       ├── agg_experiment_day.sql
-│   │       └── schema.yml
-│   └── macros/
-├── sql/
-│   └── init.sql
-├── tests/
-├── docker-compose.yml
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-
-## Results
-
-After simulating ~3,000 users...
-
-**Conversion rates (with 95% CI):**
-
-![Conversion rates](results_conversion.png)
-
-**Bayesian posterior distribution of lift (B − A):**
-
-![Posterior lift](results_lift.png)
-
-**How to read the charts**
-
-- **Conversion rates (left chart):** Variant B’s bar is clearly higher than Variant A’s, with narrow error bars. This means the improvement we see is real, not just random noise.
-
-- **Lift distribution (right chart):** The entire curve is to the right of zero, meaning B almost certainly converts more users than A. The shaded range shows we expect the true improvement to be around +12% to +19%.
-
-=> Variant B consistently outperforms A, and the compliance guardrail (KYC within 7 days) also improved. In a real fintech setting, this would justify rolling out Variant B to all new users.
 
 ## Quickstart
 
 ### Prerequisites
-- Docker + Docker Compose
-- Python 3.11+ (project tested on 3.11/3.13)
+- Docker  
+- Python 3.11+ (tested on 3.11 and 3.13)  
 
+### 0) Clone and configure env
 ```bash
-# 1) Clone + env
 git clone https://github.com/brm-projects/ab-onboarding
 cd ab-onboarding
-cp .env.example .env
 
-# 2) Python env + deps
+# copy environment template
+cp .env.example .env
+```
+
+`.env` includes:
+- `DATABASE_URL` — SQLAlchemy URL (psycopg v3)
+- `API_BASE` — FastAPI base URL
+- `DBT_MART_SCHEMA` — schema for dbt marts (`analytics`)
+- `EXPERIMENT` — experiment key (`onboarding_progressive_v1`)
+
+### 1) Python env + deps
+```bash
 make venv
 make deps
+```
 
-# 3) Postgres
+### 2) Start Postgres
+```bash
 make up
+```
 
-# 4) API (new terminal)
-make api   # http://127.0.0.1:8000/health
+### 3) Run the API
+```bash
+make api   # check http://127.0.0.1:8000/health
+```
 
-# 5) Generate traffic
+### 4) Simulate traffic
+```bash
 make simulate
+```
 
-# 6) Build marts
-make dbt && make test
+### 5) Build analytics models
+```bash
+make dbt
+make test
+```
 
-# 7) Analyze (frequentist and Bayesian)
+### 6) Analyze results
+Frequentist:
+```bash
 make analyze
+```
+
+Bayesian:
+```bash
 make analyze-bayes
+```
+
+---
+
+## Results
+
+After simulating ~3,000 users:
+
+### Frequentist Analysis
+
+```
+[info] Raw counts:
+ variant  n_users  n_converted  n_kyc
+      A     1556          625    513
+      B     1444          802    635
+
+=== Experiment: onboarding_progressive_v1 ===
+A: n=1556, conv=625, rate=0.4017, CI95=[0.3776, 0.4262]
+B: n=1444, conv=802, rate=0.5554, CI95=[0.5297, 0.5809]
+
+Difference (B - A): 0.1537
+z = -8.424, p = 0.000000
+Decision: Statistically significant at 5%.
+
+Guardrail (KYC≤7d):
+A: rate=0.3297   B: rate=0.4398   Δ(B−A)=+0.1101
+KYC guardrail: PASS (non-inferior)
+
+Recommendation: SHIP Variant B
+```
+
+Interpretation:  
+Variant B shows a clear and statistically significant improvement in onboarding completion. The compliance guardrail also improves, so B can be safely shipped.
+
+---
+
+### Bayesian Analysis (Beta–Binomial)
+
+```
+=== Bayesian Results (conjugate Beta–Binomial) ===
+Pr(B > A) = 1.000
+Lift 95% HDI = [+0.1179, +0.1887]
+Pr(|lift| ≤ 0.005) = 0.000  (practical equivalence)
+
+[guardrail] KYC≤7d:
+A=0.3297  B=0.4398  Δ(B−A)=+0.1101
+KYC guardrail: PASS (non-inferior)
+
+Interpretation:
+High posterior probability that B improves conversion (≥ 95%), and KYC guardrail passes.
+Recommendation: SHIP Variant B.
+```
+
+---
+
+### Visuals
+
+**Conversion Rates with 95% CI**
+
+![Conversion rates](results_conversion.png)
+
+**Posterior Distribution of Lift (B − A)**
+
+![Posterior lift](results_lift.png)
+
+---
+
+### For stakeholders:
+
+- **Conversion rates (bar chart):** Variant B’s bar is much higher than A’s. The error bars are narrow and barely overlap — this means the difference is real, not random noise.  
+- **Lift distribution (histogram):** The entire curve is to the right of zero, meaning B almost certainly converts more users than A. The shaded range shows the expected improvement is around +12 to +19 percentage points.  
+
+**Takeaway:** Variant B consistently outperforms A, and compliance (KYC ≤ 7 days) also improves. In a real fintech context, this would justify rolling out Variant B to all users.
+
