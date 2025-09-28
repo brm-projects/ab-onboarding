@@ -1,0 +1,9 @@
+experiments:
+  - key: onboarding_progressive_v1
+    name: Progressive onboarding vs full KYC
+    enabled: true
+    allocation:
+      A: 50
+      B: 50
+    targeting:
+      new_users_only: true
