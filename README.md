@@ -1,7 +1,7 @@
 # AB Onboarding Experimentation Platform
 
 End-to-end experimentation stack for A/B testing in a fintech onboarding scenario.  
-Built with **FastAPI**, **Postgres**, **dbt**, and analysis scripts in **Python** (frequentist & Bayesian).
+Built with **FastAPI**, **Postgres**, **dbt**, and analysis scripts in **Python**.
 
 ---
 
